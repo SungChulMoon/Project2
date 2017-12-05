@@ -2,7 +2,11 @@ package UserInterface;
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;;
+
+import InnerClass.DBmethod;
+
+import java.awt.event.*;
+import java.io.File;;
 
 public class adminPage2 extends JFrame {
 
@@ -234,6 +238,7 @@ public class adminPage2 extends JFrame {
 		btn_directory.setBackground(Color.WHITE);
 
 		btn_directory.setBorderPainted(false);
+			
 		contentPane.add(btn_directory);
 
 		contentPane.add(btn_regist);
