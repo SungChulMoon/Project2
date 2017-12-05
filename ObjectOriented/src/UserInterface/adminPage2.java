@@ -1,10 +1,8 @@
 package UserInterface;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
+import java.awt.event.*;;
 
 public class adminPage2 extends JFrame {
 
@@ -46,6 +44,10 @@ public class adminPage2 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 940, 580);
 		setResizable(false);
+
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image img = toolkit.getImage("img/Icon.png");
+		setIconImage(img);
 		
 		contentPane = new JPanel(){
 			public void paintComponent(Graphics g) {
@@ -115,7 +117,7 @@ public class adminPage2 extends JFrame {
 		lb_link.setBounds(235, 395, 76, 52);
 		tf_fileName.setBounds(330, 45, 220, 32);
 		tf_link.setBounds(330, 410, 220, 30);
-		btn_back.setBounds(33, 33, 51, 51);
+		btn_back.setBounds(66, 33, 51, 51);
 		btn_directory.setBounds(573, 45, 32, 32);
 		btn_regist.setBounds(679, 410, 120, 40);
 		rd_w.setBounds(330, 100, 62, 27);
@@ -128,6 +130,8 @@ public class adminPage2 extends JFrame {
 		
 
 		
+
+		btn_back.setBorderPainted(false);
 		contentPane.add(btn_back);
 
 		contentPane.add(lb_fileName);

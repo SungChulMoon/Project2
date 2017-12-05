@@ -97,7 +97,7 @@ public class Main extends JFrame {
 
 		tf_local = new JTextField();
 		tf_local.setFont(new Font("±¼¸²", Font.PLAIN, 24));
-		tf_local.setBounds(110, 45, 905, 40);
+		tf_local.setBounds(110, 55, 905, 40);
 		contentPane.add(tf_local);
 		tf_local.setColumns(10);
 
@@ -173,7 +173,7 @@ public class Main extends JFrame {
 		});
 		
 		btn_search.setBackground(Color.WHITE);
-		btn_search.setBounds(1056, 45, 40, 40);
+		btn_search.setBounds(1050, 45, 40, 40);
 		contentPane.add(btn_search);
 
 		try {
@@ -247,9 +247,11 @@ public class Main extends JFrame {
 				g.drawImage(weatherIcon.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
 			}
 		};
+		
+		
 		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
 		btn_back.setBackground(Color.WHITE);
-		btn_back.setBounds(33, 33, 51, 51);
+		btn_back.setBounds(33, 50, 51, 51);
 		contentPane.add(btn_back);
 		btn_back.addActionListener(new ActionListener() {
 			@Override
@@ -288,10 +290,10 @@ public class Main extends JFrame {
 		JLabel lb_id = new JLabel("");
 		lb_id.setText(us.getName()+" ´Ô È¯¿µÇÕ´Ï´Ù.");
 		lb_id.setFont(new Font("±¼¸²", Font.PLAIN, 25));
-		lb_id.setBounds(419, 15, 304, 21);
+		lb_id.setBounds(390, 20, 380, 25);
 		contentPane.add(lb_id);
 		
-		JButton btn_userinfo = new JButton("\uD68C\uC6D0\uC815\uBCF4\uBCC0\uACBD");
+		JButton btn_userinfo = new JButton(new ImageIcon("img/btn_main_user.png"));
 		btn_userinfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserInfomation uif = new UserInfomation(us);
@@ -299,9 +301,11 @@ public class Main extends JFrame {
 				dispose();
 			}
 		});
-		btn_userinfo.setBounds(760, 13, 171, 29);
+		btn_userinfo.setBounds(845, 20, 170, 30);
 		contentPane.add(btn_userinfo);
 
+		btn_back.setBorderPainted(false);
+		btn_search.setBorderPainted(false);
 	}
 
 	public void setphoto(String main) {

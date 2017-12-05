@@ -65,6 +65,8 @@ public class adminPage extends JFrame {
 		
 		tf_tip.setColumns(10);
 		tf_link.setColumns(10);
+		
+		btn_back.setBorderPainted(false);
 
 		btn_addtip.addActionListener(new ActionListener() {
 

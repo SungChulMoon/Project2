@@ -183,7 +183,8 @@ public class join extends JFrame {
 		cb_style3.setForeground(new Color(5, 97, 232));
 		rd_woman.setForeground(new Color(5, 97, 232));
 		rd_man.setForeground(new Color(5, 97, 232));
-		
+
+		btn_back.setBorderPainted(false);
 		rd_body0.setBorderPainted(true);
 		rd_body1.setBorderPainted(true);
 		rd_body2.setBorderPainted(true);
