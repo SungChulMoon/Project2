@@ -132,7 +132,7 @@ public class UserInfomation extends JFrame {
 		ch2.setBounds(310, 545, 161, 29);
 		contentPane.add(ch2);
 		
-		JCheckBox ch3 = new JCheckBox("\uC139\uC2DC");
+		ch3 = new JCheckBox("");
 		ch3.setBounds(105, 601, 161, 29);
 		contentPane.add(ch3);
 		
@@ -143,10 +143,7 @@ public class UserInfomation extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("\uC2A4\uD0C0\uC77C");
 		lblNewLabel_2.setBounds(54, 496, 78, 21);
 		contentPane.add(lblNewLabel_2);
-		
-	}
-	public void changeGUI(String gender) {
-		if (gender.equals("여자")) {
+		if (us.getGender().equals("여자")) {
 			ch3.setText("섹시");
 			mr1.setVisible(false);
 			mr2.setVisible(false);
@@ -170,5 +167,8 @@ public class UserInfomation extends JFrame {
 			mr3.setVisible(true);
 			mr4.setVisible(true);
 		}
+	}
+	public void changeGUI(String gender) {
+		
 	}
 }
