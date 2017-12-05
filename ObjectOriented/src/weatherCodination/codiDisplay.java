@@ -38,6 +38,7 @@ public class codiDisplay extends JPanel {
 	String sizest="";
 
 	
+	  
 	
 	/**
 	 * codiDisplay »ý¼ºÀÚ
