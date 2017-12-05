@@ -14,7 +14,7 @@ import java.awt.Image;
 
 public class clothObject {
 	/**계절감을 나타내는 int 변수*/
-	int weather;
+	String weather;
 	/**두께감을 나타내는 int 변수*/
 	int thick;
 	/**스타일을 나타내는 int배열 변수*/
@@ -35,7 +35,7 @@ public class clothObject {
 	 * @param img 옷 이미지
 	 * @param lk 쇼핑몰 링크
 	 */
-	clothObject(int wt,int th, int[] st, int[] bd, Image img, String lk) {
+	clothObject(String wt,int th, int[] st, int[] bd, Image img, String lk) {
 		weather=wt;
 		thick=th;
 		for(int i=0; i<4; i++) style[i]=st[i];
@@ -58,7 +58,7 @@ public class clothObject {
  */
 class outer extends clothObject{
 	
-	outer(int wt,int th, int[] st,int[] bd, Image img, String link) {
+	outer(String wt,int th, int[] st,int[] bd, Image img, String link) {
 		super(wt, th, st, bd, img, link);
 	}
 };
@@ -69,7 +69,7 @@ class outer extends clothObject{
  * @see clothObject
  */
 class top extends clothObject{
-	top(int wt, int th, int[] st,int[] bd, Image img, String link) {
+	top(String wt, int th, int[] st,int[] bd, Image img, String link) {
 		super(wt, th, st, bd,img, link);
 	}
 };
@@ -80,7 +80,7 @@ class top extends clothObject{
  * @see clothObject
  */
 class pants extends clothObject{
-	pants(int wt, int th, int[] st,int[] bd, Image img, String link) {
+	pants(String wt, int th, int[] st,int[] bd, Image img, String link) {
 		super(wt, th, st, bd,img, link);
 	}
 };
@@ -91,7 +91,7 @@ class pants extends clothObject{
  * @see clothObject
  */
 class shoes extends clothObject{
-	shoes(int wt, int th, int[] st, int[] bd,Image img, String link) {
+	shoes(String wt, int th, int[] st, int[] bd,Image img, String link) {
 		super(wt, th, st, bd,img, link);
 	}
 };

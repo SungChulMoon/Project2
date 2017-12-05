@@ -47,6 +47,14 @@ public class initialFileCloth {
 		initialFile();
 
 	}
+	
+	public static void cloclear() {
+		clothArr.clear();
+		clo_outer.clear();
+		clo_pants.clear();
+		clo_shoes.clear();
+		clo_top.clear();
+	}
 
 	public void initialFile() {
 		int[] tmpStyle=new int[4];
@@ -71,19 +79,19 @@ public class initialFileCloth {
 					tmpBody[3]=sti(clothArr.get(i).getBody4());
 					
 					if(clothArr.get(i).getType()=="outer") {
-					outer tmp = new outer(sti(clothArr.get(i).getSeason()), 
-							sti(clothArr.get(i).getThick()), tmpStyle, tmpBody, changedImg, clothArr.get(i).getFilepath());
+					outer tmp = new outer(clothArr.get(i).getSeason(),sti(clothArr.get(i).getThick()), tmpStyle, tmpBody, 
+							changedImg, clothArr.get(i).getFilepath());
 					clo_outer.add(tmp);
 					}else if(clothArr.get(i).getType()=="top") {
-						top tmp = new top(sti(clothArr.get(i).getSeason()), 
+						top tmp = new top(clothArr.get(i).getSeason(), 
 								sti(clothArr.get(i).getThick()), tmpStyle, tmpBody, changedImg, clothArr.get(i).getFilepath());
 						clo_top.add(tmp);
 					}else if(clothArr.get(i).getType()=="pants") {
-						pants tmp = new pants(sti(clothArr.get(i).getSeason()), 
+						pants tmp = new pants(clothArr.get(i).getSeason(), 
 								sti(clothArr.get(i).getThick()), tmpStyle, tmpBody, changedImg, clothArr.get(i).getFilepath());
 						clo_pants.add(tmp);
 					}else {
-						shoes tmp = new shoes(sti(clothArr.get(i).getSeason()), 
+						shoes tmp = new shoes(clothArr.get(i).getSeason(), 
 								sti(clothArr.get(i).getThick()), tmpStyle, tmpBody, changedImg, clothArr.get(i).getFilepath());
 						clo_shoes.add(tmp);
 					}

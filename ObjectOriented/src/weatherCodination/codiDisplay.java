@@ -39,9 +39,7 @@ public class codiDisplay extends JPanel {
 	String stylest="";
 	String sizest="";
 
-	
-	  
-	
+
 	/**
 	 * codiDisplay »ý¼ºÀÚ
 	 */
@@ -49,7 +47,7 @@ public class codiDisplay extends JPanel {
 		setLayout(null);
 		
 		
-		initialCloth testAddCloth=new initialCloth(sex, body);
+		initialFileCloth testAddCloth=new initialFileCloth(sex);
 		
 		panel=new codiPanel(Integer.parseInt(temp), stylest, sizest, body);
 		panel.setLocation(0,0);
