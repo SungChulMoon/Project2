@@ -294,7 +294,9 @@ public class Main extends JFrame {
 		JButton btn_userinfo = new JButton("\uD68C\uC6D0\uC815\uBCF4\uBCC0\uACBD");
 		btn_userinfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				UserInfomation uif = new UserInfomation(us);
+				uif.setVisible(true);
+				dispose();
 			}
 		});
 		btn_userinfo.setBounds(760, 13, 171, 29);
