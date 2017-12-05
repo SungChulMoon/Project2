@@ -45,13 +45,13 @@ public class codiDisplay extends JPanel {
 	/**
 	 * codiDisplay 생성자
 	 */
-	public codiDisplay(String sex, String id, String temp, String stylest, String sizest){
+	public codiDisplay(String sex, String id, String temp, String stylest, String sizest, String body){
 		setLayout(null);
 		
 		
 		initialCloth testAddCloth=new initialCloth(sex);
 		
-		panel=new codiPanel(Integer.parseInt(temp), stylest, sizest);
+		panel=new codiPanel(Integer.parseInt(temp), stylest, sizest, body);
 		panel.setLocation(0,0);
 		panel.setSize(1000,250);
 		add(panel);
@@ -61,7 +61,7 @@ public class codiDisplay extends JPanel {
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel.removeAll();
-				panel.refreshCodi(Integer.parseInt(temp), stylest, sizest);
+				panel.refreshCodi(Integer.parseInt(temp), stylest, sizest, body);
 				panel.updateUI();
 			}
 		});
@@ -89,9 +89,9 @@ public class codiDisplay extends JPanel {
 		 * @param stylest 회원의 스타일 String
 		 * @param sizest 회원의 스타일 갯수 int
 		 */
-		codiPanel(int temp, String stylest,String sizest){
+		codiPanel(int temp, String stylest,String sizest, String body){
 		
-			testMatchCloth=new matchCloth(temp, stylest, sizest);
+			testMatchCloth=new matchCloth(temp, stylest, sizest, body);
 						
 			subPanel=new JPanel();
 			subPanel.setLayout(new GridLayout(1,4));
@@ -136,9 +136,9 @@ public class codiDisplay extends JPanel {
 		 * @param stylest 회원의 스타일 String
 		 * @param sizest 회원의 스타일 갯수 int
 		 */
-		private void refreshCodi(int temp, String stylest,String sizest){
+		private void refreshCodi(int temp, String stylest,String sizest,String body){
 			codiObject codi;
-			testMatchCloth=new matchCloth(temp, stylest, sizest);
+			testMatchCloth=new matchCloth(temp, stylest, sizest, body);
 						
 			subPanel=new JPanel();
 			subPanel.setLayout(new GridLayout(1,4));
