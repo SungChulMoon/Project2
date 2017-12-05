@@ -256,10 +256,11 @@ public class Main extends JFrame {
 		btn_back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				
 				Login lg = new Login();
 				lg.setVisible(true);
 				dispose();
-
 			}
 		});
 
