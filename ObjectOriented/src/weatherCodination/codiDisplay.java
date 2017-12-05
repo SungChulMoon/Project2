@@ -46,6 +46,7 @@ public class codiDisplay extends JPanel {
 	public codiDisplay(String sex, String id, String temp, String stylest, String sizest){
 		setLayout(null);
 		
+		
 		initialCloth testAddCloth=new initialCloth(sex);
 		
 		panel=new codiPanel(Integer.parseInt(temp), stylest, sizest);

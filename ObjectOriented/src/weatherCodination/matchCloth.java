@@ -26,6 +26,7 @@ public class matchCloth {
 	/**DB를 통해 들어온 체형의 가중치를 담고 있을  int 변수*/
 	int bd;
 	
+	
 	/**옷 매칭 클래스를 생성하는 생성자
 	 * 
 	 * @param temp 현재 기온
