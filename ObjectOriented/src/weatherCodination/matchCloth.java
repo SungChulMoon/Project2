@@ -35,6 +35,11 @@ public class matchCloth {
 	 * @param sizeSt 선택한 style갯수 문자열
 	 * */
 	matchCloth(int temp, String styleSt, String sizeSt, String body) {
+		clothMatrix[0]=new int[initialCloth.clo_outer.size()];
+		clothMatrix[1]=new int[initialCloth.clo_top.size()];
+		clothMatrix[2]=new int[initialCloth.clo_pants.size()];
+		clothMatrix[3]=new int[initialCloth.clo_shoes.size()];
+		
 		parameterTranslate(styleSt, sizeSt, body);
 		weightAssignment(temp);
 		produceClothMatrix();
@@ -118,11 +123,6 @@ public class matchCloth {
 		int style;
 		int n;
 		
-		clothMatrix[0]=new int[initialCloth.clo_outer.size()];
-		clothMatrix[1]=new int[initialCloth.clo_top.size()];
-		clothMatrix[2]=new int[initialCloth.clo_pants.size()];
-		clothMatrix[3]=new int[initialCloth.clo_shoes.size()];
-		
 		
 		Random random=new Random();
 		n=random.nextInt(styleArray.length);
@@ -181,6 +181,7 @@ public class matchCloth {
 			score+=(int)(initialCloth.clo_pants.get(i).thick*matchCloth.thick_weight+initialCloth.clo_pants.get(i).style[style]*matchCloth.style_weight)/10;
 			clothMatrix[2][i]=score;
 		}
+		
 		for(int i=0; i<initialCloth.clo_shoes.size(); i++) {
 			int score=0;
 			
@@ -218,13 +219,15 @@ public class matchCloth {
 			}
 		}
 	}
+	
 	/**
-	 * 우선순위 매트릭스를 초기화 하고, 우선순위 매트릭스를 생성하는 함수를 호출하는 함수
+	 * 우선순위 매트릭스를 생성하는 함수를 호출하는 함수
 	 */
-	private void priorityMatrix() {	
-		for(int i=0; i<4; i++) {
-			for(int j=0; j<3; j++) {
-				priorityMatrix[i][j]=0;
+	private void priorityMatrix() {
+		
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 3; j++) {
+				priorityMatrix[i][j] = 0;
 			}
 		}
 			

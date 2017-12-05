@@ -34,7 +34,7 @@ public class initialFileCloth {
 	 * addCloth의 생성자
 	 * 
 	 * */
-	initialFileCloth(String sex, String body) {
+	initialFileCloth(String sex) {
 		
 		this.sex=sex;
 		
