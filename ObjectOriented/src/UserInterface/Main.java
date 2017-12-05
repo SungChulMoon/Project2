@@ -139,7 +139,7 @@ public class Main extends JFrame {
 					weatherIcon2 = new ImageIcon(weather2);
 
 					ts.removeAll();
-					ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size());
+					ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size(),us.getBody());
 					ts.setBounds(17, 723, 1090, 279);
 					ts.setOpaque(false);
 					contentPane.add(ts);
@@ -279,7 +279,7 @@ public class Main extends JFrame {
 		panel_forecast.add(ex);
 		panel_forecast.setOpaque(false);
 
-		ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size());
+		ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size(),us.getBody());
 		System.out.println(us.getGender());
 		ts.setBounds(17, 723, 1090, 279);
 		ts.setOpaque(false);
