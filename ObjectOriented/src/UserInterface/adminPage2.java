@@ -306,7 +306,7 @@ public class adminPage2 extends JFrame {
 		btn_regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int cnt =DBmethod.insertcodi(new CodiOb(tf_fileName.getText(),"src\\clothes\\"+clothpath+"\\"+genderpath+"\\"+tf_fileName.getText(), (String)cb_season.getSelectedItem(), (String)cb_thick.getSelectedItem(), (String)gender, (String)tf_link.getText(), (String)clothpath,
+					int cnt =DBmethod.insertcodi(new CodiOb(tf_fileName.getText(),"clothes\\"+clothpath+"\\"+genderpath+"\\"+tf_fileName.getText(), (String)cb_season.getSelectedItem(), (String)cb_thick.getSelectedItem(), (String)gender, (String)tf_link.getText(), (String)clothpath,
 							(String)cb_style1.getSelectedItem(), (String)cb_style2.getSelectedItem(), (String)cb_style3.getSelectedItem(), (String)cb_style4.getSelectedItem(),
 							(String)cb_body1.getSelectedItem(), (String)cb_body2.getSelectedItem(), (String)cb_body3.getSelectedItem(), (String)cb_body4.getSelectedItem()));
 					uploadFile(clothpath,genderpath,tf_fileName.getText());
@@ -366,7 +366,7 @@ public class adminPage2 extends JFrame {
 
 	      try{
 	         fin = new FileInputStream(selectedFile.getPath());
-	         fout = new FileOutputStream("src\\clothes\\"+clothpath+"\\"+genderpath+"\\"+filename); //확장명 jpg는 바꾸면 안됨
+	         fout = new FileOutputStream("clothes\\"+clothpath+"\\"+genderpath+"\\"+filename); //확장명 jpg는 바꾸면 안됨
 	         while(true) {
 	            data = fin.read();
 	            if( data == -1) break;

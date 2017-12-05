@@ -28,7 +28,7 @@ public class initialFileCloth {
 	static public ArrayList<shoes> clo_shoes = new ArrayList<shoes>();
 
 	/**이미지 경로를 담아두는 String*/
-	String imgPath = "src/clothes/";
+	String imgPath = "clothes/";
 	String sex;
 	/**
 	 * addCloth의 생성자

@@ -54,7 +54,7 @@ public class codiDisplay extends JPanel {
 		panel.setSize(1000,250);
 		add(panel);
 		
-		ImageIcon buttonIcon=new ImageIcon("src/clothes/refresh.png");
+		ImageIcon buttonIcon=new ImageIcon("clothes/refresh.png");
 		JButton btn=new JButton(buttonIcon);
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
