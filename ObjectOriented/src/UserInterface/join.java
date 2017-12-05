@@ -100,7 +100,6 @@ public class join extends JFrame {
 		JButton btn_join = new JButton(Icon_btn_join_join);
 		JButton btn_check = new JButton(Icon_btn_check);
 
-
 		rd_body0.addItemListener(new bodyItemcheck());
 		rd_body1.addItemListener(new bodyItemcheck());
 		rd_body2.addItemListener(new bodyItemcheck());
@@ -117,35 +116,37 @@ public class join extends JFrame {
 		ButtonGroup g_woman = new ButtonGroup();
 		ButtonGroup g_man = new ButtonGroup();
 
-		lb_join_id.setBounds(120, 33, 128, 52);
-		lb_join_name.setBounds(120, 96, 128, 52);
-		lb_join_pass.setBounds(120, 159, 128, 52);
-		lb_join_passcheck.setBounds(120, 222, 155, 52);
-		lb_join_local.setBounds(120, 287, 128, 52);
-		lb_join_gender.setBounds(135, 343, 100, 51);
-		lb_join_style.setBounds(120, 568, 124, 51);
-		tf_join_id.setBounds(275, 41, 288, 37);
-		tf_join_name.setBounds(275, 100, 288, 37);
-		tf_join_pass.setBounds(275, 163, 288, 37);
-		tf_join_passcheck.setBounds(275, 232, 288, 37);
-		tf_join_local.setBounds(275, 295, 288, 37);
-		cb_style0.setBounds(250, 581, 131, 27);
-		cb_style1.setBounds(429, 581, 131, 27);
-		cb_style2.setBounds(250, 633, 131, 27);
-		cb_style3.setBounds(429, 633, 131, 27);
-		rd_body0.setBounds(252, 406, 75, 150);
-		rd_body1.setBounds(341, 406, 75, 150);
-		rd_body2.setBounds(430, 406, 75, 150);
-		rd_body3.setBounds(519, 406, 90, 150);
-		rd_m_body0.setBounds(252, 406, 75, 150);
-		rd_m_body1.setBounds(341, 406, 75, 150);
-		rd_m_body2.setBounds(430, 406, 75, 150);
-		rd_m_body3.setBounds(519, 406, 90, 150);
-		rd_woman.setBounds(250, 355, 93, 27);
-		rd_man.setBounds(429, 356, 93, 27);
+		lb_join_id.setBounds(120, 35, 130, 50);
+		lb_join_name.setBounds(120, 95, 130, 50);
+		lb_join_pass.setBounds(120, 155, 130, 50);
+		lb_join_passcheck.setBounds(120, 215, 155, 50);
+		lb_join_local.setBounds(120, 275, 130, 50);
+		lb_join_gender.setBounds(135, 335, 100, 50);
+		lb_join_style.setBounds(120, 570, 114, 50);
+		lb_equal.setBounds(590, 225, 65, 20);
+		tf_join_id.setBounds(275, 35, 290, 40);
+		tf_join_name.setBounds(275, 95, 290, 40);
+		tf_join_pass.setBounds(275, 155, 290, 40);
+		tf_join_passcheck.setBounds(275, 215, 290, 40);
+		tf_join_local.setBounds(275, 275, 290, 40);
+		cb_style0.setBounds(250, 580, 130, 30);
+		cb_style1.setBounds(430, 580, 130, 30);
+		cb_style2.setBounds(250, 625, 130, 30);
+		cb_style3.setBounds(430, 625, 130, 30);
+		rd_body0.setBounds(250, 405, 75, 150);
+		rd_body1.setBounds(340, 405, 75, 150);
+		rd_body2.setBounds(430, 405, 75, 150);
+		rd_body3.setBounds(520, 405, 90, 150);
+		rd_m_body0.setBounds(250, 405, 75, 150);
+		rd_m_body1.setBounds(340, 405, 75, 150);
+		rd_m_body2.setBounds(430, 405, 75, 150);
+		rd_m_body3.setBounds(520, 405, 90, 150);
+
+		rd_woman.setBounds(270, 345, 100, 30);
+		rd_man.setBounds(430, 345, 100, 30);
 		btn_join.setBounds(120, 675, 440, 51);
-		btn_back.setBounds(33, 33, 51, 51);
 		btn_check.setBounds(580, 35, 105, 40);
+		btn_back.setBounds(33, 33, 51, 51);
 		
 		tf_join_id.setColumns(10);
 		tf_join_name.setColumns(10);
@@ -153,21 +154,6 @@ public class join extends JFrame {
 		tf_join_passcheck.setColumns(10);
 		tf_join_local.setColumns(10);
 		
-		contentPane.add(lb_join_id);
-		contentPane.add(lb_join_name);
-		contentPane.add(lb_join_pass);
-		contentPane.add(lb_join_passcheck);
-		contentPane.add(lb_join_local);
-		contentPane.add(lb_join_gender);
-		contentPane.add(lb_join_style);
-		contentPane.add(tf_join_id);
-		contentPane.add(tf_join_name);
-		contentPane.add(tf_join_pass);
-		contentPane.add(tf_join_passcheck);
-		contentPane.add(tf_join_local);
-
-
-
 		cb_style0.setFont(new Font("°íµñ", Font.BOLD, 17));
 		cb_style1.setFont(new Font("°íµñ", Font.BOLD, 17));
 		cb_style2.setFont(new Font("°íµñ", Font.BOLD, 17));
@@ -189,18 +175,15 @@ public class join extends JFrame {
 		rd_m_body3.setBackground(Color.WHITE);
 		rd_woman.setBackground(Color.WHITE);
 		rd_man.setBackground(Color.WHITE);
-		btn_back.setBackground(Color.WHITE);
-		
+
+		lb_equal.setForeground(Color.RED);
 		cb_style0.setForeground(new Color(5, 97, 232));
 		cb_style1.setForeground(new Color(5, 97, 232));
 		cb_style2.setForeground(new Color(5, 97, 232));
 		cb_style3.setForeground(new Color(5, 97, 232));
 		rd_woman.setForeground(new Color(5, 97, 232));
 		rd_man.setForeground(new Color(5, 97, 232));
-		lb_equal.setForeground(Color.RED);
 		
-		
-
 		rd_body0.setBorderPainted(true);
 		rd_body1.setBorderPainted(true);
 		rd_body2.setBorderPainted(true);
@@ -209,29 +192,19 @@ public class join extends JFrame {
 		rd_m_body1.setBorderPainted(true);
 		rd_m_body2.setBorderPainted(true);
 		rd_m_body3.setBorderPainted(true);
-		contentPane.add(cb_style0);
-		contentPane.add(cb_style1);
-		contentPane.add(cb_style2);
-		contentPane.add(cb_style3);
-		contentPane.add(rd_body0);
-		contentPane.add(rd_body1);
-		contentPane.add(rd_body2);
-		contentPane.add(rd_body3);
-
-
+		
+		g.add(rd_man);
+		g.add(rd_woman);
 		g_woman.add(rd_body0);
 		g_woman.add(rd_body1);
 		g_woman.add(rd_body2);
 		g_woman.add(rd_body3);
-
-		contentPane.add(rd_m_body0);
-		contentPane.add(rd_m_body1);
-		contentPane.add(rd_m_body2);
-		contentPane.add(rd_m_body3);
 		g_man.add(rd_m_body0);
 		g_man.add(rd_m_body1);
 		g_man.add(rd_m_body2);
 		g_man.add(rd_m_body3);
+
+
 		rd_m_body0.setVisible(false);
 		rd_m_body1.setVisible(false);
 		rd_m_body2.setVisible(false);
@@ -256,7 +229,6 @@ public class join extends JFrame {
 
 			}
 		});
-		contentPane.add(rd_woman);
 
 		rd_man.addItemListener(new ItemListener() {
 
@@ -279,12 +251,8 @@ public class join extends JFrame {
 
 			}
 		});
-		contentPane.add(rd_man);
-		g.add(rd_man);
-		g.add(rd_woman);
 
 		lb_equal.setFont(new Font("°íµñ", Font.PLAIN, 18));
-		contentPane.add(lb_equal);
 		btn_join.addActionListener(new ActionListener() {
 
 			@Override
@@ -347,7 +315,6 @@ public class join extends JFrame {
 			}
 		});
 
-		contentPane.add(btn_join);
 
 		btn_check.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -374,11 +341,9 @@ public class join extends JFrame {
 				}
 			}
 		});
-		contentPane.add(btn_check);
 		
 	
 		System.out.println(cnt + "");
-		contentPane.add(btn_back);
 		btn_back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -388,6 +353,36 @@ public class join extends JFrame {
 				
 			}
 		});
+		contentPane.add(lb_join_id);
+		contentPane.add(lb_join_name);
+		contentPane.add(lb_join_pass);
+		contentPane.add(lb_join_passcheck);
+		contentPane.add(lb_join_local);
+		contentPane.add(lb_join_gender);
+		contentPane.add(lb_join_style);
+		contentPane.add(lb_equal);
+		contentPane.add(tf_join_id);
+		contentPane.add(tf_join_name);
+		contentPane.add(tf_join_pass);
+		contentPane.add(tf_join_passcheck);
+		contentPane.add(tf_join_local);
+		contentPane.add(cb_style0);
+		contentPane.add(cb_style1);
+		contentPane.add(cb_style2);
+		contentPane.add(cb_style3);
+		contentPane.add(rd_body0);
+		contentPane.add(rd_body1);
+		contentPane.add(rd_body2);
+		contentPane.add(rd_body3);
+		contentPane.add(rd_m_body0);
+		contentPane.add(rd_m_body1);
+		contentPane.add(rd_m_body2);
+		contentPane.add(rd_m_body3);
+		contentPane.add(rd_woman);
+		contentPane.add(rd_man);
+		contentPane.add(btn_join);
+		contentPane.add(btn_check);
+		contentPane.add(btn_back);
 	}
 
 	class itemListen implements ItemListener {
@@ -408,7 +403,6 @@ public class join extends JFrame {
 					cnt++;
 					checkStly.add(cb_style3.getText());
 				}
-
 			} else {
 				if (e.getItem() == cb_style0) {
 					cnt--;
@@ -429,7 +423,6 @@ public class join extends JFrame {
 				System.out.println(checkStly.get(i));
 			}
 		}
-
 	}
 
 	class bodyItemcheck implements ItemListener {
@@ -454,10 +447,8 @@ public class join extends JFrame {
 				} else if (e.getItem() == rd_m_body3) {
 					checkbody = "³²ÀÚ3";
 				}
-
 			}
 			System.out.println(checkbody);
 		}
-
 	}
 }
