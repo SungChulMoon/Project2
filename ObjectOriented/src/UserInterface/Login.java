@@ -60,6 +60,8 @@ public class Login extends JFrame {
 			}
 		};
 
+		
+		
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
