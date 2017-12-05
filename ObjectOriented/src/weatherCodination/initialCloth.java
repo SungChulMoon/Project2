@@ -5,6 +5,7 @@ import java.util.*;
 
 import javax.swing.ImageIcon;
 
+
 /** 
  * 옷 객체를 생성하는 클래스
  * 

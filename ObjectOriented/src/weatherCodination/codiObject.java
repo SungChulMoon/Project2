@@ -20,6 +20,7 @@ public class codiObject {
 	/**코디 완료된 top객체
 	 * */
 	top codiTop;
+	
 	/**코디 완료된 pants객체*/
 	pants codiPants;
 	/**코디 완료된 shoes객체*/

@@ -27,6 +27,7 @@ public class matchCloth {
 	int bd;
 	
 	
+	
 	/**옷 매칭 클래스를 생성하는 생성자
 	 * 
 	 * @param temp 현재 기온
