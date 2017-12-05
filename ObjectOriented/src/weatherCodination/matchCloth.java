@@ -23,6 +23,8 @@ public class matchCloth {
 	public static int[][] priorityMatrix=new int[4][3];
 	/**DB를 통해 들어온 스타일 String을 저장할 String 배열*/
 	String[] styleArray;
+	/**DB를 통해 들어온 체형의 가중치를 담고 있을  int 변수*/
+	int bd;
 	
 	/**옷 매칭 클래스를 생성하는 생성자
 	 * 
@@ -30,8 +32,8 @@ public class matchCloth {
 	 * @param styleSt String값으로 들어오는 style 문자열
 	 * @param sizeSt 선택한 style갯수 문자열
 	 * */
-	matchCloth(int temp, String styleSt, String sizeSt) {
-		parameterTranslate(styleSt, sizeSt);
+	matchCloth(int temp, String styleSt, String sizeSt, String body) {
+		parameterTranslate(styleSt, sizeSt, body);
 		weightAssignment(temp);
 		produceClothMatrix();
 		priorityMatrix();
@@ -42,7 +44,7 @@ public class matchCloth {
 	 * @param styleSt DB를 통해서 들어오는 style 문자열
 	 * @param sizeSt DB를 통해서 들어오는 선택한 style 갯수 문자열
 	 */
-	public void parameterTranslate(String styleSt, String sizeSt){
+	public void parameterTranslate(String styleSt, String sizeSt, String body){
 		int size=Integer.parseInt(sizeSt);
 		
 		styleArray=new String [size];
@@ -50,6 +52,16 @@ public class matchCloth {
 		
 		for(int i=0; i<size; i++) {
 			styleArray[i]=tokens.nextToken(",");
+		}
+		
+		if(body.contains("1")) {
+			bd=0;
+		}else if(body.contains("2")) {
+			bd=1;
+		}else if(body.contains("3")) {
+			bd=2;
+		}else {
+			bd=3;
 		}
 	}
 	
@@ -120,16 +132,19 @@ public class matchCloth {
 		}else if(styleArray[n].equals("섹시") || styleArray[n].equals("댄디")){
 			style=2;
 		}else	style=3;
+		
 
 	
 		for(int i=0; i<initialCloth.clo_outer.size(); i++) {
 			int score=0;
 			
 			if((tempST==tempState.WARM_4 || tempST==tempState.WARM_3||tempST==tempState.WARM_2||tempST==tempState.WARM_1)
-					&& initialCloth.clo_outer.get(i).weather==1) score+=1000;
+					&& initialCloth.clo_outer.get(i).weather==1) score+=100;
 			else if((tempST==tempState.COLD_1 || tempST==tempState.COLD_2||tempST==tempState.COLD_3||tempST==tempState.COLD_4)
-					&& initialCloth.clo_outer.get(i).weather==2) score+=1000;
-			else score-=1000;
+					&& initialCloth.clo_outer.get(i).weather==2) score+=100;
+			else score-=100;
+			
+			score+=(initialCloth.clo_outer.get(i).body[bd]*10);
 			
 			score+=(int)(initialCloth.clo_outer.get(i).thick*matchCloth.thick_weight+initialCloth.clo_outer.get(i).style[style]*matchCloth.style_weight)/10;
 			clothMatrix[0][i]=score;
@@ -139,10 +154,12 @@ public class matchCloth {
 			int score=0;
 			
 			if((tempST==tempState.WARM_4 || tempST==tempState.WARM_3||tempST==tempState.WARM_2||tempST==tempState.WARM_1)
-					&& initialCloth.clo_top.get(i).weather==1) score+=1000;
+					&& initialCloth.clo_top.get(i).weather==1) score+=100;
 			else if((tempST==tempState.COLD_1 || tempST==tempState.COLD_2||tempST==tempState.COLD_3||tempST==tempState.COLD_4) 
-					&& initialCloth.clo_top.get(i).weather==2) score+=1000;
-			else score-=1000;
+					&& initialCloth.clo_top.get(i).weather==2) score+=100;
+			else score-=100;
+			
+			score+=(initialCloth.clo_top.get(i).body[bd]*10);
 			
 			score+=(int)(initialCloth.clo_top.get(i).thick*matchCloth.thick_weight+initialCloth.clo_top.get(i).style[style]*matchCloth.style_weight)/10;
 			clothMatrix[1][i]=score;
@@ -152,10 +169,12 @@ public class matchCloth {
 			int score=0;
 			
 			if((tempST==tempState.WARM_4 || tempST==tempState.WARM_3||tempST==tempState.WARM_2||tempST==tempState.WARM_1) 
-					&& initialCloth.clo_pants.get(i).weather==1) score+=1000;
+					&& initialCloth.clo_pants.get(i).weather==1) score+=100;
 			else if((tempST==tempState.COLD_1 || tempST==tempState.COLD_2||tempST==tempState.COLD_3||tempST==tempState.COLD_4) 
-					&& initialCloth.clo_pants.get(i).weather==2) score+=1000;
-			else score-=1000;
+					&& initialCloth.clo_pants.get(i).weather==2) score+=100;
+			else score-=100;
+			
+			score+=(initialCloth.clo_pants.get(i).body[bd]*10);
 			
 			score+=(int)(initialCloth.clo_pants.get(i).thick*matchCloth.thick_weight+initialCloth.clo_pants.get(i).style[style]*matchCloth.style_weight)/10;
 			clothMatrix[2][i]=score;
@@ -164,10 +183,12 @@ public class matchCloth {
 			int score=0;
 			
 			if((tempST==tempState.WARM_4 || tempST==tempState.WARM_3||tempST==tempState.WARM_2||tempST==tempState.WARM_1)
-					&& initialCloth.clo_shoes.get(i).weather==1) score+=1000;
+					&& initialCloth.clo_shoes.get(i).weather==1) score+=100;
 			else if((tempST==tempState.COLD_1 || tempST==tempState.COLD_2||tempST==tempState.COLD_3||tempST==tempState.COLD_4)
-					&& initialCloth.clo_shoes.get(i).weather==2) score+=1000;
-			else score-=1000;
+					&& initialCloth.clo_shoes.get(i).weather==2) score+=100;
+			else score-=100;
+			
+			score+=(initialCloth.clo_shoes.get(i).body[bd]*10);
 			
 			score+=(int)(initialCloth.clo_shoes.get(i).thick*matchCloth.thick_weight+initialCloth.clo_shoes.get(i).style[style]*matchCloth.style_weight)/10;
 			clothMatrix[3][i]=score;
