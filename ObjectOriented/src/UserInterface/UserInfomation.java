@@ -28,6 +28,7 @@ public class UserInfomation extends JFrame {
 
 	int cnt = 0;
 	ArrayList<String> stylearr = new ArrayList<>();
+	private JButton btn_back;
 
 	public UserInfomation(UserObject us) {
 		ImageIcon Icon_back_join = new ImageIcon("img/lb_back_user.png");
@@ -36,6 +37,7 @@ public class UserInfomation extends JFrame {
 		ImageIcon Icon_body = new ImageIcon("img/lb_admin_body.png");
 		ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
 		ImageIcon Icon_user_change = new ImageIcon("img/btn_user_change.png");
+		ImageIcon Icon_logo = new ImageIcon("img/logo.png");
 		ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
 		ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
 		ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
@@ -84,7 +86,7 @@ public class UserInfomation extends JFrame {
 		contentPane.add(lb_name);
 
 		JLabel lb_user_local = new JLabel(Icon_local);
-		lb_user_local.setBounds(105, 147, 130, 50);
+		lb_user_local.setBounds(105, 135, 130, 50);
 		contentPane.add(lb_user_local);
 
 		tf_location = new JTextField();
@@ -102,7 +104,7 @@ public class UserInfomation extends JFrame {
 		contentPane.add(wr1);
 
 		JLabel lb_user_body = new JLabel(Icon_body);
-		lb_user_body.setBounds(30, 209, 114, 50);
+		lb_user_body.setBounds(33, 208, 114, 50);
 		contentPane.add(lb_user_body);
 
 		wr2 = new JRadioButton(Icon_w1);
@@ -170,28 +172,28 @@ public class UserInfomation extends JFrame {
 		ch1.setFont(new Font("±¼¸²", Font.PLAIN, 17));
 		ch1.setForeground(new Color(5, 97, 232));
 		ch1.setBackground(Color.WHITE);
-		ch1.setBounds(105, 545, 161, 29);
+		ch1.setBounds(105, 545, 120, 29);
 		contentPane.add(ch1);
 
 		ch2 = new JCheckBox("\uD050\uD2F0");
 		ch2.setFont(new Font("±¼¸²", Font.PLAIN, 17));
 		ch2.setForeground(new Color(5, 97, 232));
 		ch2.setBackground(Color.WHITE);
-		ch2.setBounds(310, 545, 161, 29);
+		ch2.setBounds(310, 545, 120, 29);
 		contentPane.add(ch2);
 
 		ch3 = new JCheckBox("");
 		ch3.setFont(new Font("±¼¸²", Font.PLAIN, 17));
 		ch3.setForeground(new Color(5, 97, 232));
 		ch3.setBackground(Color.WHITE);
-		ch3.setBounds(105, 601, 161, 29);
+		ch3.setBounds(105, 601, 120, 29);
 		contentPane.add(ch3);
 
 		ch4 = new JCheckBox("\uBE48\uD2F0\uC9C0");
 		ch4.setFont(new Font("±¼¸²", Font.PLAIN, 17));
 		ch4.setForeground(new Color(5, 97, 232));
 		ch4.setBackground(Color.WHITE);
-		ch4.setBounds(310, 601, 161, 29);
+		ch4.setBounds(310, 601, 120, 29);
 		contentPane.add(ch4);
 
 		ch1.addItemListener(new itemListen());
@@ -236,8 +238,26 @@ public class UserInfomation extends JFrame {
 
 			}
 		});
-		btn_change.setBounds(445, 640, 125, 30);
+		btn_change.setBounds(450, 601, 125, 30);
 		contentPane.add(btn_change);
+		
+		btn_back = new JButton(new ImageIcon("img/lb_back.png"));
+		btn_back.setBounds(33, 33, 51, 51);
+		btn_back.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Main ma = new Main(us.getId());
+				ma.setVisible(true);
+				dispose();
+
+			}
+		});
+		btn_back.setBorderPainted(false);
+		contentPane.add(btn_back);
+		
+		JLabel lblNewLabel = new JLabel(Icon_logo);
+		lblNewLabel.setBounds(433, 33, 200, 170);
+		contentPane.add(lblNewLabel);
 		if (us.getGender().equals("¿©ÀÚ")) {
 			ch3.setText("¼½½Ã");
 			mr1.setVisible(false);
@@ -329,5 +349,4 @@ public class UserInfomation extends JFrame {
 			}
 		}
 	}
-
 }
