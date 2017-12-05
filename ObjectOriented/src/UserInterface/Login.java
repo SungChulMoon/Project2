@@ -22,40 +22,36 @@ public class Login extends JFrame {
 	ImageIcon Icon_back_login = new ImageIcon("img/lb_back_login.png");
 	ImageIcon Icon_btn_login = new ImageIcon("img/btn_login.png");
 	ImageIcon Icon_btn_join = new ImageIcon("img/btn_join.png");
+	ImageIcon Icon_id = new ImageIcon("img/lb_id.png");
+	ImageIcon Icon_pass = new ImageIcon("img/lb_pass.png");
+	ImageIcon Icon_login = new ImageIcon("img/lb_login.png");
+	ImageIcon Icon_logo = new ImageIcon("img/logo.png");
+	
 	private JPanel contentPane;
 	private JTextField tf_login_id;
 	private JPasswordField tf_login_pass;
+	
 	boolean idcheck = false;
 	boolean passcheck = false;
+	
 	ArrayList<String> idarr = new ArrayList<>();
 	ArrayList<String> passarr = new ArrayList<>();
 
 	public static void main(String[] args) {
-
 		Login frame = new Login();
 		frame.setVisible(true);
-
 	}
 
 	public Login() {
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Image img = toolkit.getImage("img/Icon.png");
-		setIconImage(img);
-		ImageIcon Icon_id = new ImageIcon("img/lb_id.png");
-		ImageIcon Icon_pass = new ImageIcon("img/lb_pass.png");
-		ImageIcon Icon_login = new ImageIcon("img/lb_login.png");
-		ImageIcon Icon_logo = new ImageIcon("img/logo.png");
-		JLabel lb_login = new JLabel(Icon_login);
-		JLabel lb_id = new JLabel(Icon_id);
-		JLabel lb_pass = new JLabel(Icon_pass);
-		tf_login_id = new JTextField();
-		tf_login_pass = new JPasswordField();
-
 		setTitle("¿þ´õ¸®½¬");
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 300, 720, 480);
 		setResizable(false);
+		
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image img = toolkit.getImage("img/Icon.png");
+		setIconImage(img);
 		
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {
@@ -65,36 +61,30 @@ public class Login extends JFrame {
 				super.paintComponent(g);
 			}
 		};
-
-		
-		contentPane.setBackground(Color.WHITE);
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-
-		lb_login.setFont(new Font("³ª´®¹Ù¸¥°íµñ", Font.PLAIN, 40));
-		lb_login.setBounds(100, 100, 190, 90);
-		lb_login.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_login);
-
-		lb_id.setFont(new Font("³ª´®¹Ù¸¥°íµñ", Font.PLAIN, 18));
-		lb_id.setBounds(223, 195, 54, 35);
-		lb_id.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_id);
-
-		lb_pass.setFont(new Font("³ª´®¹Ù¸¥°íµñ", Font.PLAIN, 18));
-		lb_pass.setBounds(150, 235, 125, 35);
-		lb_pass.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_pass);
-
-		tf_login_id.setBounds(290, 195, 284, 30);
-		contentPane.add(tf_login_id);
-		tf_login_id.setColumns(10);
-
-		tf_login_pass.setColumns(10);
-		tf_login_pass.setBounds(290, 235, 284, 30);
-		contentPane.add(tf_login_pass);
-
+		
+		JLabel lb_login = new JLabel(Icon_login);
+		JLabel lb_id = new JLabel(Icon_id);
+		JLabel lb_pass = new JLabel(Icon_pass);
+		JLabel lb_logo = new JLabel(Icon_logo);
+		tf_login_id = new JTextField();
+		tf_login_pass = new JPasswordField();
 		JButton btn_login = new JButton(Icon_btn_login);
+		JButton btn_login_join = new JButton(Icon_btn_join);
+
+		lb_id.setBounds(225, 215, 55, 35);
+		lb_pass.setBounds(160, 265, 125, 35);
+		lb_logo.setBounds(265, 20, 200, 170);
+		lb_login.setBounds(80, 120, 190, 90);
+		tf_login_id.setBounds(290, 215, 285, 30);
+		tf_login_pass.setBounds(290, 265, 285, 30);
+		btn_login.setBounds(150, 330, 200, 30);
+		btn_login_join.setBounds(375, 330, 200, 30);
+
+		tf_login_id.setColumns(10);
+		tf_login_pass.setColumns(10);
+
 		btn_login.addActionListener(new ActionListener() {
 
 			@Override
@@ -140,12 +130,7 @@ public class Login extends JFrame {
 
 			}
 		});
-		btn_login.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btn_login.setForeground(new Color(5, 97, 232));
-		btn_login.setBounds(150, 300, 200, 30);
-		contentPane.add(btn_login);
 
-		JButton btn_login_join = new JButton(Icon_btn_join);
 		btn_login_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				join join = new join();
@@ -154,15 +139,14 @@ public class Login extends JFrame {
 
 			}
 		});
-		btn_login_join.setFont(new Font("±¼¸²", Font.PLAIN, 19));
-		btn_login_join.setBounds(374, 300, 200, 30);
-		btn_login_join.setForeground(new Color(5, 97, 232));
-		contentPane.add(btn_login_join);
 
-		JLabel lb_logo = new JLabel(Icon_logo);
-		lb_logo.setBounds(284, 16, 198, 169);
+		contentPane.add(lb_id);
+		contentPane.add(lb_pass);
+		contentPane.add(lb_login);
 		contentPane.add(lb_logo);
-
+		contentPane.add(tf_login_id);
+		contentPane.add(tf_login_pass);
+		contentPane.add(btn_login);
+		contentPane.add(btn_login_join);
 	}
-
 }
