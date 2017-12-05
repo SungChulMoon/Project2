@@ -2,15 +2,11 @@ package UserInterface;
 
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
 import InnerClass.DBmethod;
 import InnerClass.UserObject;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
+
 
 public class UserInfomation extends JFrame {
 
@@ -33,15 +29,13 @@ public class UserInfomation extends JFrame {
 	int cnt = 0;
 	ArrayList<String> stylearr = new ArrayList<>();
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public UserInfomation(UserObject us) {
-
+		ImageIcon Icon_back_join = new ImageIcon("img/lb_back_user.png");
+		ImageIcon Icon_name = new ImageIcon("img/lb_join_name.png");
+		ImageIcon Icon_local = new ImageIcon("img/lb_join_local.png");
+		ImageIcon Icon_body = new ImageIcon("img/lb_admin_body.png");
+		ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
+		ImageIcon Icon_user_change = new ImageIcon("img/btn_user_change.png");
 		ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
 		ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
 		ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
@@ -51,60 +45,80 @@ public class UserInfomation extends JFrame {
 		ImageIcon Icon_m1 = new ImageIcon("img/m_body1.png");
 		ImageIcon Icon_m2 = new ImageIcon("img/m_body2.png");
 		ImageIcon Icon_m3 = new ImageIcon("img/m_body3.png");
+		ImageIcon Icon_id = new ImageIcon("img/lb_join_id.png");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 669, 739);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setBounds(100, 100, 670, 740);
+		
+		setTitle("¿þ´õ¸®½¬");
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image img = toolkit.getImage("img/Icon.png");
+		setIconImage(img);
+		
+		contentPane = new JPanel(){
+			public void paintComponent(Graphics g) {
+				Rectangle r = getVisibleRect();
+				g.drawImage(Icon_back_join.getImage(), 0, 0, r.width, r.height, null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
-		JLabel label = new JLabel("\uC544\uC774\uB514");
-		label.setBounds(105, 45, 78, 21);
-		contentPane.add(label);
+		JLabel lb_user_id = new JLabel(Icon_id);
+		lb_user_id.setBounds(105, 33, 130, 50);
+		contentPane.add(lb_user_id);
 
 		JLabel lb_id = new JLabel("\uBCF4\uC5EC\uC904\uC544\uC774\uB514");
+		lb_id.setFont(new Font("±¼¸²", Font.PLAIN, 17));
 		lb_id.setBounds(266, 45, 153, 21);
 		contentPane.add(lb_id);
 
-		JLabel lblNewLabel = new JLabel("\uC774\uB984");
-		lblNewLabel.setBounds(105, 98, 78, 21);
-		contentPane.add(lblNewLabel);
+		JLabel lb_user_name = new JLabel(Icon_name);
+		lb_user_name.setBounds(105, 85, 130, 50);
+		contentPane.add(lb_user_name);
 
 		JLabel lb_name = new JLabel("\uBCF4\uC5EC\uC904 \uC774\uB984");
+		lb_name.setFont(new Font("±¼¸²", Font.PLAIN, 17));
 		lb_name.setBounds(264, 98, 185, 21);
 		contentPane.add(lb_name);
 
-		JLabel label_1 = new JLabel("\uC9C0\uC5ED");
-		label_1.setBounds(105, 147, 78, 21);
-		contentPane.add(label_1);
+		JLabel lb_user_local = new JLabel(Icon_local);
+		lb_user_local.setBounds(105, 147, 130, 50);
+		contentPane.add(lb_user_local);
 
 		tf_location = new JTextField();
-		tf_location.setBounds(263, 144, 156, 27);
+		tf_location.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		tf_location.setBounds(263, 144, 160, 30);
 		contentPane.add(tf_location);
 		tf_location.setColumns(10);
 
 		ButtonGroup w = new ButtonGroup();
 		ButtonGroup m = new ButtonGroup();
 		wr1 = new JRadioButton(Icon_w0,true);
+		wr1.setBackground(Color.WHITE);
 		wr1.setBorderPainted(true);
 		wr1.setBounds(54, 270, 120, 180);
 		contentPane.add(wr1);
 
-		JLabel lblNewLabel_1 = new JLabel("\uCCB4\uD615");
-		lblNewLabel_1.setBounds(54, 221, 78, 21);
-		contentPane.add(lblNewLabel_1);
+		JLabel lb_user_body = new JLabel(Icon_body);
+		lb_user_body.setBounds(30, 209, 114, 50);
+		contentPane.add(lb_user_body);
 
 		wr2 = new JRadioButton(Icon_w1);
+		wr2.setBackground(Color.WHITE);
 		wr2.setBorderPainted(true);
 		wr2.setBounds(179, 270, 120, 180);
 		contentPane.add(wr2);
 
 		wr3 = new JRadioButton(Icon_w2);
+		wr3.setBackground(Color.WHITE);
 		wr3.setBounds(310, 270, 120, 180);
 		wr3.setBorderPainted(true);
 		contentPane.add(wr3);
 
 		wr4 = new JRadioButton(Icon_w3);
+		wr4.setBackground(Color.WHITE);
 		wr4.setBounds(450, 270, 120, 180);
 		wr4.setBorderPainted(true);
 		contentPane.add(wr4);
@@ -116,21 +130,25 @@ public class UserInfomation extends JFrame {
 
 		mr1 = new JRadioButton(Icon_m0,true);
 		mr1.setBounds(54, 270, 120, 180);
+		mr1.setBackground(Color.WHITE);
 		mr1.setBorderPainted(true);
 		contentPane.add(mr1);
 
 		mr2 = new JRadioButton(Icon_m1);
 		mr2.setBounds(179, 270, 120, 180);
+		mr2.setBackground(Color.WHITE);
 		mr2.setBorderPainted(true);
 		contentPane.add(mr2);
 
 		mr3 = new JRadioButton(Icon_m2);
 		mr3.setBounds(308, 270, 120, 180);
+		mr3.setBackground(Color.WHITE);
 		mr3.setBorderPainted(true);
 		contentPane.add(mr3);
 
 		mr4 = new JRadioButton(Icon_m3);
 		mr4.setBounds(450, 270, 120, 180);
+		mr4.setBackground(Color.WHITE);
 		mr4.setBorderPainted(true);
 		contentPane.add(mr4);
 		m.add(mr1);
@@ -149,18 +167,30 @@ public class UserInfomation extends JFrame {
 		mr4.addItemListener(new bodyItemcheck());
 
 		ch1 = new JCheckBox("\uC2DC\uD06C");
+		ch1.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch1.setForeground(new Color(5, 97, 232));
+		ch1.setBackground(Color.WHITE);
 		ch1.setBounds(105, 545, 161, 29);
 		contentPane.add(ch1);
 
 		ch2 = new JCheckBox("\uD050\uD2F0");
+		ch2.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch2.setForeground(new Color(5, 97, 232));
+		ch2.setBackground(Color.WHITE);
 		ch2.setBounds(310, 545, 161, 29);
 		contentPane.add(ch2);
 
 		ch3 = new JCheckBox("");
+		ch3.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch3.setForeground(new Color(5, 97, 232));
+		ch3.setBackground(Color.WHITE);
 		ch3.setBounds(105, 601, 161, 29);
 		contentPane.add(ch3);
 
 		ch4 = new JCheckBox("\uBE48\uD2F0\uC9C0");
+		ch4.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch4.setForeground(new Color(5, 97, 232));
+		ch4.setBackground(Color.WHITE);
 		ch4.setBounds(310, 601, 161, 29);
 		contentPane.add(ch4);
 
@@ -172,11 +202,11 @@ public class UserInfomation extends JFrame {
 		lb_id.setText(us.getId());
 		lb_name.setText(us.getName());
 		tf_location.setText(us.getLocation());
-		JLabel lblNewLabel_2 = new JLabel("\uC2A4\uD0C0\uC77C");
-		lblNewLabel_2.setBounds(54, 496, 78, 21);
-		contentPane.add(lblNewLabel_2);
+		JLabel lb_user_style = new JLabel(Icon_style);
+		lb_user_style.setBounds(54, 496, 130, 50);
+		contentPane.add(lb_user_style);
 
-		JButton btn_change = new JButton("\uC815\uBCF4 \uBCC0\uACBD");
+		JButton btn_change = new JButton(new ImageIcon("img/btn_user_change.png"));
 		btn_change.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
@@ -206,7 +236,7 @@ public class UserInfomation extends JFrame {
 
 			}
 		});
-		btn_change.setBounds(424, 639, 125, 29);
+		btn_change.setBounds(445, 640, 125, 30);
 		contentPane.add(btn_change);
 		if (us.getGender().equals("¿©ÀÚ")) {
 			ch3.setText("¼½½Ã");
