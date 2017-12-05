@@ -56,11 +56,11 @@ public class matchCloth {
 			styleArray[i]=tokens.nextToken(",");
 		}
 		
-		if(body.contains("1")) {
+		if(body.contains("0")) {
 			bd=0;
-		}else if(body.contains("2")) {
+		}else if(body.contains("1")) {
 			bd=1;
-		}else if(body.contains("3")) {
+		}else if(body.contains("2")) {
 			bd=2;
 		}else {
 			bd=3;

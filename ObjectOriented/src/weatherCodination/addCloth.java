@@ -5,7 +5,6 @@ package weatherCodination;
  * @author Áö¿ì
  * 
  */
-
 public class addCloth {
 	addCloth(){
 		

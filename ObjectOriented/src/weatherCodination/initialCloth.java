@@ -226,7 +226,7 @@ public class initialCloth {
 		int[][] m_body = { { 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 5, 3, 5, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 },
 				{ 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 } };
 		
-		if(sex.equals("남자")) {			
+		if(sex.equals("남자")) {	
 			pantsPath=imgPath + "pants/man/";
 			
 			for (int i = 0; i < m_initialPants.length; i++) {
