@@ -24,23 +24,26 @@ public class initialCloth {
 
 	/**이미지 경로를 담아두는 String*/
 	String imgPath = "src/clothes/";
-
+	String sex;
 	/**
 	 * addCloth의 생성자
 	 * 
 	 * */
-	initialCloth(String sex) {
-		this.initialOuter(sex);
-		this.initialTop(sex);
-		this.initialPants(sex);
-		this.initialShoes(sex);
+	initialCloth(String sex, String body) {
+		
+		this.sex=sex;
+		
+		this.initialOuter();
+		this.initialTop();
+		this.initialPants();
+		this.initialShoes();
 	}
 
 	
 	/**
 	 * 초기 outer객체를 생성해 ArrayList인 clo_outer에 삽입하는 함수
 	 * */
-	public void initialOuter(String sex) {
+	public void initialOuter() {
 		
 		String[] m_initialOuter= {"outer1.PNG","outer2.PNG","outer3.PNG","outer4.PNG","outer5.PNG",
 								"w_outer1.PNG","w_outer2.PNG","w_outer3.PNG","w_outer4.PNG"};
@@ -81,7 +84,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				outer tmp = new outer(m_weather[i], m_thick[i],  m_style[i], m_body[i],changedImg, m_link[i]);
+				outer tmp = new outer(m_weather[i], m_thick[i],  m_style[i], m_body[i] ,changedImg, m_link[i]);
 				clo_outer.add(tmp);
 			}
 		}else {
@@ -100,7 +103,7 @@ public class initialCloth {
 	/**
 	 * 초기 top객체를 생성해 ArrayList인 clo_top에 삽입하는 함수
 	 * */
-	public void initialTop(String sex)  {
+	public void initialTop()  {
 		String topPath;
 		
 		String[] w_initialtop= {"mtm1.PNG", "nt1.PNG","nt2.PNG","nt3.PNG","nt4.PNG",
@@ -136,10 +139,10 @@ public class initialCloth {
 						1,1,1,1,1};
 		int[] m_weather= {2,2,2,2,2,2,1,1,1,1,1,1,1};
 		
-		int[][] w_body= {{3,3,3,3},{3,3,3,0},{3,3,3,0},{3,3,3,3},{3,3,3,},
-				{3,3,3,3},{3,3,3,3},{3,3,3,3},{3,3,3,3},{3,3,3,3},
-				{3,0,3,3},{4,0,0,5},{3,3,3,3},{3,2,5,3},{1,4,2,1},
-				{3,5,1,2},{3,3,0,4},{3,1,5,2},{3,5,1,1},{3,0,2,2}};
+		int[][] w_body= {{3,3,0,3},{3,3,3,2},{5,0,5,3},{2,3,0,3},{3,3,0,4},
+				{0,5,0,0},{1,5,0,0},{3,3,3,2},{0,2,0,5},{5,0,5,5},
+				{5,0,3,3},{3,0,0,5},{3,3,3,3},{3,2,5,3},{1,4,2,1},
+				{5,5,1,2},{1,3,0,4},{5,1,5,2},{0,5,1,1},{5,0,2,2}};
 		int[][] m_body= {{5,2,3,3},{5,5,0,2},{5,2,5,2},{5,3,5,2},{5,3,3,2},
 				{5,5,5,3},{5,5,5,3},{5,5,5,3},{5,5,1,3},{5,5,3,3},
 				{5,2,5,3},{5,3,5,3},{5,3,5,3}};
@@ -174,7 +177,7 @@ public class initialCloth {
 	/**
 	 * 초기 pants객체를 생성해 ArrayList인 clo_pants에 삽입하는 함수
 	 * */
-	public void initialPants(String sex)  {
+	public void initialPants()  {
 		String pantsPath;
 		
 		String[] initialPants= {"pants1.PNG","pants2.PNG","pants3.PNG","pants4.PNG","pants5.PNG",
@@ -240,7 +243,7 @@ public class initialCloth {
 	/**
 	 * 초기 shoes객체를 생성해 ArrayList인 clo_shoes에 삽입하는 함수
 	 * */
-	public void initialShoes(String sex)  {
+	public void initialShoes()  {
 		String shoesPath;
 		String[] initialShoes= {"sh1.PNG","sh2.PNG","sh3.PNG","sh4.PNG","sh5.PNG","sh6.PNG",
 								"w_shoes1.PNG","w_shoes2.PNG","w_shoes3.PNG","w_shoes4.PNG","w_shoes5.PNG","w_shoes6.PNG","w_shoes7.PNG"};
