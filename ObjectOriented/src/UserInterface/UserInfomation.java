@@ -36,22 +36,21 @@ public class UserInfomation extends JFrame {
 		ImageIcon Icon_local = new ImageIcon("img/lb_join_local.png");
 		ImageIcon Icon_body = new ImageIcon("img/lb_admin_body.png");
 		ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
-		ImageIcon Icon_user_change = new ImageIcon("img/btn_user_change.png");
 		ImageIcon Icon_logo = new ImageIcon("img/logo.png");
 		ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
 		ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
 		ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
 		ImageIcon Icon_w3 = new ImageIcon("img/w_body3.png");
-
 		ImageIcon Icon_m0 = new ImageIcon("img/m_body0.png");
 		ImageIcon Icon_m1 = new ImageIcon("img/m_body1.png");
 		ImageIcon Icon_m2 = new ImageIcon("img/m_body2.png");
 		ImageIcon Icon_m3 = new ImageIcon("img/m_body3.png");
 		ImageIcon Icon_id = new ImageIcon("img/lb_join_id.png");
+
+		setTitle("¿þ´õ¸®½¬");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 670, 740);
-		
-		setTitle("¿þ´õ¸®½¬");
+		setResizable(false);
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Image img = toolkit.getImage("img/Icon.png");
 		setIconImage(img);
@@ -72,8 +71,8 @@ public class UserInfomation extends JFrame {
 		contentPane.add(lb_user_id);
 
 		JLabel lb_id = new JLabel("\uBCF4\uC5EC\uC904\uC544\uC774\uB514");
-		lb_id.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		lb_id.setBounds(266, 45, 153, 21);
+		lb_id.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		lb_id.setBounds(265, 45, 155, 25);
 		contentPane.add(lb_id);
 
 		JLabel lb_user_name = new JLabel(Icon_name);
@@ -81,8 +80,8 @@ public class UserInfomation extends JFrame {
 		contentPane.add(lb_user_name);
 
 		JLabel lb_name = new JLabel("\uBCF4\uC5EC\uC904 \uC774\uB984");
-		lb_name.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		lb_name.setBounds(264, 98, 185, 21);
+		lb_name.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		lb_name.setBounds(265, 100, 155, 25);
 		contentPane.add(lb_name);
 
 		JLabel lb_user_local = new JLabel(Icon_local);
@@ -90,8 +89,8 @@ public class UserInfomation extends JFrame {
 		contentPane.add(lb_user_local);
 
 		tf_location = new JTextField();
-		tf_location.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		tf_location.setBounds(263, 144, 160, 30);
+		tf_location.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		tf_location.setBounds(265, 155, 160, 30);
 		contentPane.add(tf_location);
 		tf_location.setColumns(10);
 
@@ -169,28 +168,28 @@ public class UserInfomation extends JFrame {
 		mr4.addItemListener(new bodyItemcheck());
 
 		ch1 = new JCheckBox("\uC2DC\uD06C");
-		ch1.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch1.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		ch1.setForeground(new Color(5, 97, 232));
 		ch1.setBackground(Color.WHITE);
 		ch1.setBounds(105, 545, 120, 29);
 		contentPane.add(ch1);
 
 		ch2 = new JCheckBox("\uD050\uD2F0");
-		ch2.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch2.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		ch2.setForeground(new Color(5, 97, 232));
 		ch2.setBackground(Color.WHITE);
 		ch2.setBounds(310, 545, 120, 29);
 		contentPane.add(ch2);
 
 		ch3 = new JCheckBox("");
-		ch3.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch3.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		ch3.setForeground(new Color(5, 97, 232));
 		ch3.setBackground(Color.WHITE);
 		ch3.setBounds(105, 601, 120, 29);
 		contentPane.add(ch3);
 
 		ch4 = new JCheckBox("\uBE48\uD2F0\uC9C0");
-		ch4.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		ch4.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		ch4.setForeground(new Color(5, 97, 232));
 		ch4.setBackground(Color.WHITE);
 		ch4.setBounds(310, 601, 120, 29);
@@ -255,9 +254,9 @@ public class UserInfomation extends JFrame {
 		btn_back.setBorderPainted(false);
 		contentPane.add(btn_back);
 		
-		JLabel lblNewLabel = new JLabel(Icon_logo);
-		lblNewLabel.setBounds(433, 33, 200, 170);
-		contentPane.add(lblNewLabel);
+		JLabel lb_logo = new JLabel(Icon_logo);
+		lb_logo.setBounds(433, 33, 200, 170);
+		contentPane.add(lb_logo);
 		if (us.getGender().equals("¿©ÀÚ")) {
 			ch3.setText("¼½½Ã");
 			mr1.setVisible(false);
