@@ -96,6 +96,8 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_season = new JComboBox();
 		combo_season.setBounds(331, 216, 75, 24);
+		combo_season.addItem("WARM");
+		combo_season.addItem("COLD");
 		contentPane.add(combo_season);
 		
 		JLabel lb_thick = new JLabel("\uB450\uAED8\uAC10");
