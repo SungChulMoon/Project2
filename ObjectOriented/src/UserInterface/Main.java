@@ -284,6 +284,21 @@ public class Main extends JFrame {
 		ts.setBounds(17, 723, 1090, 279);
 		ts.setOpaque(false);
 		contentPane.add(ts);
+		
+		JLabel lb_id = new JLabel("");
+		lb_id.setText(us.getName()+" ´Ô È¯¿µÇÕ´Ï´Ù.");
+		lb_id.setFont(new Font("±¼¸²", Font.PLAIN, 25));
+		lb_id.setBounds(419, 15, 304, 21);
+		contentPane.add(lb_id);
+		
+		JButton btn_userinfo = new JButton("\uD68C\uC6D0\uC815\uBCF4\uBCC0\uACBD");
+		btn_userinfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btn_userinfo.setBounds(760, 13, 171, 29);
+		contentPane.add(btn_userinfo);
 
 	}
 
@@ -323,7 +338,6 @@ public class Main extends JFrame {
 			break;
 		}
 	}
-
 }
 
 class tiplink extends MouseAdapter {
