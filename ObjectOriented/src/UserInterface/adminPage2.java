@@ -106,6 +106,8 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_thick = new JComboBox();
 		combo_thick.setBounds(620, 216, 69, 24);
+		for(int i=0; i<6; i++) combo_thick.addItem(Integer.toString(i));
+		
 		contentPane.add(combo_thick);
 		
 		JLabel lb_style = new JLabel("\uC2A4\uD0C0\uC77C");
@@ -118,6 +120,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_style1 = new JComboBox();
 		combo_style1.setBounds(372, 277, 53, 24);
+		for(int i=0; i<6; i++) combo_style1.addItem(Integer.toString(i));
 		contentPane.add(combo_style1);
 		
 		JLabel lb_style2 = new JLabel("\uD050\uD2F0");
@@ -126,6 +129,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_style2 = new JComboBox();
 		combo_style2.setBounds(498, 277, 53, 24);
+		for(int i=0; i<6; i++) combo_style2.addItem(Integer.toString(i));
 		contentPane.add(combo_style2);
 		
 		JLabel lb_style3 = new JLabel("\uC139\uC2DC");
@@ -134,6 +138,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_style3 = new JComboBox();
 		combo_style3.setBounds(620, 277, 53, 24);
+		for(int i=0; i<6; i++) combo_style3.addItem(Integer.toString(i));
 		contentPane.add(combo_style3);
 		
 		JLabel lb_style4 = new JLabel("\uBE48\uD2F0\uC9C0");
@@ -142,6 +147,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_style4 = new JComboBox();
 		combo_style4.setBounds(746, 277, 53, 24);
+		for(int i=0; i<6; i++) combo_style4.addItem(Integer.toString(i));
 		contentPane.add(combo_style4);
 		
 		JLabel lb_link = new JLabel("\uB9C1\uD06C");
@@ -171,6 +177,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_body1 = new JComboBox();
 		combo_body1.setBounds(372, 343, 53, 24);
+		for(int i=0; i<6; i++) combo_body1.addItem(Integer.toString(i));
 		contentPane.add(combo_body1);
 		
 		JLabel lb_body2 = new JLabel("\uBAB82");
@@ -179,6 +186,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_body2 = new JComboBox();
 		combo_body2.setBounds(498, 340, 53, 24);
+		for(int i=0; i<6; i++) combo_body2.addItem(Integer.toString(i));
 		contentPane.add(combo_body2);
 		
 		JLabel label_2 = new JLabel("\uBAB83");
@@ -187,6 +195,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_body3 = new JComboBox();
 		combo_body3.setBounds(620, 343, 53, 24);
+		for(int i=0; i<6; i++) combo_body3.addItem(Integer.toString(i));
 		contentPane.add(combo_body3);
 		
 		JLabel lb_body4 = new JLabel("\uBAB84");
@@ -195,6 +204,7 @@ public class adminPage2 extends JFrame {
 		
 		JComboBox combo_body4 = new JComboBox();
 		combo_body4.setBounds(746, 343, 53, 24);
+		for(int i=0; i<6; i++) combo_body4.addItem(Integer.toString(i));
 		contentPane.add(combo_body4);
 	}
 }
