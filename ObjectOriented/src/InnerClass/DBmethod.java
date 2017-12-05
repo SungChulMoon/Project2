@@ -166,6 +166,17 @@ public class DBmethod {
 		}
 		return arr;
 	}
+	public static int updateInfo(String id,String location,String body,String style_str,String style_size)throws Exception {
+		getInfo();
+		PreparedStatement pst = conn.prepareStatement("update userinfo set location=?,bdoy=?,style_str=?,style_size=? where id=?");
+		pst.setString(1,location);
+		pst.setString(2, body);
+		pst.setString(3, style_str);
+		pst.setString(4, style_size);
+		pst.setString(5, id);
+		int cnt =pst.executeUpdate();
+		return cnt;
+	}
 	public static int insertcodi(CodiOb co)throws Exception {
 		getInfo();
 		PreparedStatement pst = conn.prepareStatement("insert into codi values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
