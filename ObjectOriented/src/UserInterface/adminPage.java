@@ -43,6 +43,13 @@ public class adminPage extends JFrame {
 		JButton btn_addtip = new JButton(new ImageIcon("img/btn_admin_addtip.png"));
 		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
 		JButton btn_cloth = new JButton(new ImageIcon("img/btn_cloth.png"));
+		btn_cloth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				adminPage2 ap2 =new adminPage2();
+				ap2.setVisible(true);
+				dispose();
+			}
+		});
 		JComboBox cb_weather = new JComboBox();
 		cb_weather.addItem("Clear");
 		cb_weather.addItem("Rain");

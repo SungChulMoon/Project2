@@ -3,6 +3,7 @@ package UserInterface;
 import java.awt.*;
 import javax.swing.*;
 
+import InnerClass.CodiOb;
 import InnerClass.DBmethod;
 
 import java.awt.event.*;
@@ -27,18 +28,6 @@ public class adminPage2 extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					adminPage2 frame = new adminPage2();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -87,9 +76,9 @@ public class adminPage2 extends JFrame {
 		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
 		JButton btn_directory = new JButton(new ImageIcon("img/btn_folder.png"));
 		JButton btn_regist = new JButton(new ImageIcon("img/btn_admit_regist.png"));
-		JRadioButton rd_w = new JRadioButton("여자");
+		JRadioButton rd_w = new JRadioButton("여자",true);
 		JRadioButton rd_m = new JRadioButton("남자");
-		JRadioButton rd_outer = new JRadioButton("outer");
+		JRadioButton rd_outer = new JRadioButton("outer",true);
 		JRadioButton rd_top = new JRadioButton("top");
 		JRadioButton rd_pants = new JRadioButton("pants");
 		JRadioButton rd_shoes = new JRadioButton("shoes");
@@ -102,7 +91,7 @@ public class adminPage2 extends JFrame {
 		JComboBox cb_body2 = new JComboBox();
 		JComboBox cb_body3 = new JComboBox();
 		JComboBox cb_body4 = new JComboBox();
-
+		ButtonGroup g = new ButtonGroup();
 		lb_fileName.setBounds(220, 35, 99, 52);
 		lb_gender.setBounds(230, 89, 76, 52);
 		lb_type.setBounds(230, 150, 76, 52);
@@ -144,7 +133,9 @@ public class adminPage2 extends JFrame {
 		tf_fileName.setColumns(10);
 
 		contentPane.add(lb_gender);
-
+		g.add(rd_w);
+		g.add(rd_m);
+		
 		rd_w.setFont(new Font("굴림", Font.PLAIN, 17));
 		rd_w.setBackground(Color.WHITE);
 		rd_w.setForeground(new Color(5, 97, 232));
@@ -283,8 +274,8 @@ public class adminPage2 extends JFrame {
 		btn_back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Login lg = new Login();
-				lg.setVisible(true);
+				adminPage ap = new adminPage();
+				ap.setVisible(true);
 				dispose();
 
 			}
@@ -293,5 +284,10 @@ public class adminPage2 extends JFrame {
 		sort.add(rd_top);
 		sort.add(rd_pants);
 		sort.add(rd_shoes);
+		btn_regist.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				DBmethod.insertcodi(new CodiOb(tf_fileName.getText(), filepath, season, thick, gender, link, type, style1, style2, style3, style4, body1, body2, body3, body4))
+			}
+		});
 	}
 }
