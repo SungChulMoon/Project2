@@ -143,12 +143,12 @@ public class adminPage2 extends JFrame {
 		contentPane.add(combo_style4);
 		
 		JLabel lb_link = new JLabel("\uB9C1\uD06C");
-		lb_link.setBounds(231, 336, 62, 18);
+		lb_link.setBounds(231, 413, 62, 18);
 		contentPane.add(lb_link);
 		
 		tf_link = new JTextField();
 		tf_link.setColumns(10);
-		tf_link.setBounds(331, 333, 220, 24);
+		tf_link.setBounds(331, 410, 220, 24);
 		contentPane.add(tf_link);
 		
 		JButton btn_directory = new JButton("directory");
@@ -156,7 +156,43 @@ public class adminPage2 extends JFrame {
 		contentPane.add(btn_directory);
 		
 		JButton btn_regist = new JButton("\uB4F1\uB85D");
-		btn_regist.setBounds(694, 384, 105, 27);
+		btn_regist.setBounds(701, 456, 105, 27);
 		contentPane.add(btn_regist);
+		
+		JLabel lb_body = new JLabel("\uCCB4\uD615");
+		lb_body.setBounds(231, 346, 62, 18);
+		contentPane.add(lb_body);
+		
+		JLabel lb_body1 = new JLabel("\uBAB81");
+		lb_body1.setBounds(331, 346, 43, 18);
+		contentPane.add(lb_body1);
+		
+		JComboBox combo_body1 = new JComboBox();
+		combo_body1.setBounds(372, 343, 53, 24);
+		contentPane.add(combo_body1);
+		
+		JLabel lb_body2 = new JLabel("\uBAB82");
+		lb_body2.setBounds(459, 346, 43, 18);
+		contentPane.add(lb_body2);
+		
+		JComboBox combo_body2 = new JComboBox();
+		combo_body2.setBounds(498, 340, 53, 24);
+		contentPane.add(combo_body2);
+		
+		JLabel label_2 = new JLabel("\uBAB83");
+		label_2.setBounds(585, 346, 43, 18);
+		contentPane.add(label_2);
+		
+		JComboBox combo_body3 = new JComboBox();
+		combo_body3.setBounds(620, 343, 53, 24);
+		contentPane.add(combo_body3);
+		
+		JLabel lb_body4 = new JLabel("\uBAB84");
+		lb_body4.setBounds(701, 346, 43, 18);
+		contentPane.add(lb_body4);
+		
+		JComboBox combo_body4 = new JComboBox();
+		combo_body4.setBounds(746, 343, 53, 24);
+		contentPane.add(combo_body4);
 	}
 }
