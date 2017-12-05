@@ -40,13 +40,12 @@ public class initialCloth {
 	 * 초기 outer객체를 생성해 ArrayList인 clo_outer에 삽입하는 함수
 	 * */
 	public void initialOuter(String sex) {
-		String outerPath;
 		
-		String[] w_initialOuter= {"cardigan1.PNG", "coat1.PNG","coat2.PNG","coat3.PNG","coat4.PNG",
-								"coat5.PNG","pd1.PNG","pd2.PNG","pd3.PNG","pd4.PNG",
-								"w_outer1.PNG","w_outer2.PNG","w_outer3.PNG","w_outer0.PNG"};
 		String[] m_initialOuter= {"outer1.PNG","outer2.PNG","outer3.PNG","outer4.PNG","outer5.PNG",
 								"w_outer1.PNG","w_outer2.PNG","w_outer3.PNG","w_outer4.PNG"};
+		String[] w_initialOuter={"cardigan1.PNG", "coat1.PNG","coat2.PNG","coat3.PNG","coat4.PNG",
+				"coat5.PNG","pd1.PNG","pd2.PNG","pd3.PNG","pd4.PNG",
+				"w_outer1.PNG","w_outer2.PNG","w_outer3.PNG","w_outer0.PNG"};
 		
 		String[] w_link= {"https://codibook.net/","https://codibook.net/","https://codibook.net/","https://codibook.net/item/7767169","https://codibook.net/item/7786366",
 						"https://ko.codibook.net/item/7786180","https://codibook.net/item/7780295?recStrategy=004061","https://codibook.net/codi/7502288","https://codibook.net/","https://codibook.net/","https://codibook.net/","https://codibook.net/","https://codibook.net/","https://codibook.net/"};
@@ -65,6 +64,7 @@ public class initialCloth {
 		int[] w_weather= {2,2,2,2,2,2,2,2,2,2,1,1,1,1};
 		int[] m_weather= {2,2,2,2,2,1,1,1,1,1};
 		
+		String outerPath=null;
 
 		if(sex.equals("남자")) {			
 			outerPath=imgPath + "outer/man/";
