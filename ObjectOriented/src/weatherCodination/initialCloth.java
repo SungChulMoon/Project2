@@ -64,6 +64,12 @@ public class initialCloth {
 		int[] w_weather= {2,2,2,2,2,2,2,2,2,2,1,1,1,1};
 		int[] m_weather= {2,2,2,2,2,1,1,1,1,1};
 		
+		int[][] w_body= {{3,0,1,3},{5,0,2,2},{5,0,2,4},{5,0,5,2},{0,5,0,5},
+				{2,3,0,5},{3,3,0,3},{0,5,0,3},{3,4,0,3},{2,2,0,5},
+				{0,5,0,2},{5,1,3,2},{1,4,0,5},{5,5,5,5}};
+		int[][] m_body= {{5,0,5,1},{5,3,0,3},{5,3,5,5},{5,5,0,5},{5,0,5,0},
+				{5,5,5,5},{2,5,0,5},{5,5,0,5},{5,0,3,3}};
+		
 		String outerPath=null;
 
 		if(sex.equals("남자")) {			
@@ -74,7 +80,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				outer tmp = new outer(m_weather[i], m_thick[i], m_style[i], changedImg, m_link[i]);
+				outer tmp = new outer(m_weather[i], m_thick[i],  m_style[i], m_body[i],changedImg, m_link[i]);
 				clo_outer.add(tmp);
 			}
 		}else {
@@ -84,7 +90,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				outer tmp = new outer(w_weather[i], w_thick[i], w_style[i], changedImg, w_link[i]);
+				outer tmp = new outer(w_weather[i], w_thick[i], w_style[i], w_body[i], changedImg, w_link[i]);
 				clo_outer.add(tmp);
 			}
 		}
@@ -128,6 +134,15 @@ public class initialCloth {
 						2,2,2,1,1,
 						1,1,1,1,1};
 		int[] m_weather= {2,2,2,2,2,2,1,1,1,1,1,1,1};
+		
+		int[][] w_body= {{3,3,0,3},{3,3,3,2},{5,0,5,3},{2,3,0,3},{3,3,0,4},
+				{0,5,0,0},{1,5,0,0},{3,3,3,2},{0,2,0,5},{5,0,5,5},
+				{5,0,3,3},{3,0,0,5},{3,3,3,3},{3,2,5,3},{1,4,2,1},
+				{5,5,1,2},{1,3,0,4},{5,1,5,2},{0,5,1,1},{5,0,2,2}};
+		int[][] m_body= {{5,2,3,3},{5,5,0,2},{5,2,5,2},{5,3,5,2},{5,3,3,2},
+				{5,5,5,3},{5,5,5,3},{5,5,5,3},{5,5,1,3},{5,5,3,3},
+				{5,2,5,3},{5,3,5,3},{5,3,5,3}};
+		
 
 		if(sex.equals("남자")) {
 			topPath=imgPath + "top/man/";
@@ -137,7 +152,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				top tmp = new top(m_weather[i], m_thick[i], m_style[i], changedImg, m_link[i]);
+				top tmp = new top(m_weather[i], m_thick[i], m_style[i], m_body[i],changedImg, m_link[i]);
 				clo_top.add(tmp);
 			}
 			
@@ -149,7 +164,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				top tmp = new top(w_weather[i], w_thick[i], w_style[i], changedImg, w_link[i]);
+				top tmp = new top(w_weather[i], w_thick[i], w_style[i], w_body[i],changedImg, w_link[i]);
 				clo_top.add(tmp);
 			}
 			
@@ -189,6 +204,13 @@ public class initialCloth {
 						1,1,1,1,1,1,1,1,1,1};
 		int[] m_weather= {2,2,2,2,2,1,1,1,1,1};
 		
+		int[][] w_body = { { 5, 2, 3, 3 }, { 3, 2, 3, 4 }, { 0, 0, 0, 5 }, { 3, 2, 0, 5 }, { 5, 2, 2, 3 },
+				{ 2, 5, 5, 0 }, { 2, 0, 0, 5 }, { 4, 0, 2, 3 }, { 0, 5, 3, 5 }, { 5, 0, 4, 1 }, { 4, 3, 5, 1 },
+				{ 1, 5, 3, 0 }, { 3, 3, 3, 3 }, { 2, 2, 0, 2 }, { 3, 5, 3, 0 }, { 2, 4, 4, 0 }, { 5, 2, 4, 3 },
+				{ 5, 2, 2, 2 }, { 2, 0, 0, 5 }, { 5, 0, 1, 2 } };
+		int[][] m_body = { { 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 5, 3, 5, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 },
+				{ 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 }, { 3, 3, 3, 3 } };
+		
 		if(sex.equals("남자")) {			
 			pantsPath=imgPath + "pants/man/";
 			
@@ -197,7 +219,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				pants tmp = new pants(m_weather[i], m_thick[i], m_style[i], changedImg, m_link[i]);
+				pants tmp = new pants(m_weather[i], m_thick[i], m_style[i], m_body[i], changedImg, m_link[i]);
 				clo_pants.add(tmp);
 			}
 		}else {
@@ -208,7 +230,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				pants tmp = new pants(weather[i], thick[i], style[i], changedImg, link[i]);
+				pants tmp = new pants(weather[i], thick[i], style[i], w_body[i],changedImg, link[i]);
 				clo_pants.add(tmp);
 			}
 		}
@@ -235,6 +257,10 @@ public class initialCloth {
 		
 		int[] weather= {2,2,2,2,2,2,1,1,1,1,1,1,1};
 		int[] m_weather= {2,2,2,2,2,1,1,1,1};
+		
+		int[][] body= {{1,5,3,2},{5,1,2,5},{5,0,0,5},{5,5,0,5},{3,3,3,2},
+				{4,4,1,4},{5,5,0,5},{5,5,0,5},{0,3,3,0},{5,5,0,5},{5,5,0,5},{5,2,0,5},{5,0,5,0}};
+		int[][] m_body= {{3,1,5,1},{3,3,2,3},{3,3,3,3},{3,1,3,3},{3,3,3,3},{3,3,1,3},{3,3,1,3},{3,3,3,3},{3,3,3,3}};
 
 		if(sex.equals("남자")) {		
 			shoesPath=imgPath + "shoes/man/";
@@ -244,7 +270,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				shoes tmp = new shoes(m_weather[i], m_thick[i], m_style[i], changedImg, m_link[i]);
+				shoes tmp = new shoes(m_weather[i], m_thick[i], m_style[i], m_body[i], changedImg, m_link[i]);
 				clo_shoes.add(tmp);
 			}
 			
@@ -255,7 +281,7 @@ public class initialCloth {
 				Image img = icon.getImage();
 				Image changedImg = img.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
 
-				shoes tmp = new shoes(weather[i], thick[i], style[i], changedImg, link[i]);
+				shoes tmp = new shoes(weather[i], thick[i], style[i],body[i], changedImg, link[i]);
 				clo_shoes.add(tmp);
 			}
 		}
