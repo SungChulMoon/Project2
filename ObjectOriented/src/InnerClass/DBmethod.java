@@ -187,6 +187,7 @@ public class DBmethod {
 		int cnt = pst.executeUpdate();
 		return cnt;
 	}
+	
 	public static ArrayList<CodiOb> selectCodi(String gender)throws Exception{
 		getInfo();
 		ArrayList<CodiOb> coarr =new ArrayList<>();
@@ -199,7 +200,6 @@ public class DBmethod {
 					rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15)));
 		}
 		return coarr;
-		
 	}
 
 
