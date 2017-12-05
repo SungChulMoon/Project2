@@ -50,11 +50,11 @@ public class Login extends JFrame {
 		JLabel lb_login = new JLabel(Icon_login);
 		JLabel lb_id = new JLabel(Icon_id);
 		JLabel lb_pass = new JLabel(Icon_pass);
+		JLabel lb_logo = new JLabel(Icon_logo);
 		tf_id_login = new JTextField();
 		tf_pass_login = new JPasswordField();
 		JButton btn_login = new JButton(Icon_btn_login);
 		JButton btn_join_login = new JButton(Icon_btn_join);
-		JLabel lb_logo = new JLabel(Icon_logo);
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {
 				Rectangle r = getVisibleRect();
@@ -74,12 +74,13 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 
 		lb_login.setBounds(100, 100, 190, 90);
-		lb_id.setBounds(223, 195, 54, 35);
+		lb_id.setBounds(223, 195, 55, 35);
 		lb_pass.setBounds(150, 235, 125, 35);
-		tf_id_login.setBounds(290, 195, 284, 30);
-		tf_pass_login.setBounds(290, 235, 284, 30);
+		lb_logo.setBounds(285, 15, 200, 170);
+		tf_id_login.setBounds(290, 195, 285, 30);
+		tf_pass_login.setBounds(290, 235, 285, 30);
 		btn_login.setBounds(150, 300, 200, 30);
-		lb_logo.setBounds(284, 16, 198, 169);
+		btn_join_login.setBounds(375, 300, 200, 30);
 		
 		btn_login.addActionListener(new ActionListener() {
 
@@ -141,11 +142,11 @@ public class Login extends JFrame {
 		contentPane.add(lb_login);
 		contentPane.add(lb_id);
 		contentPane.add(lb_pass);
+		contentPane.add(lb_logo);
 		contentPane.add(tf_id_login);
 		contentPane.add(tf_pass_login);
 		contentPane.add(btn_login);
 		contentPane.add(btn_join_login);
-		contentPane.add(lb_logo);
 
 
 	}
