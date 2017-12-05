@@ -2,15 +2,10 @@ package UserInterface;
 
 import java.awt.event.*;
 import java.awt.*;
-
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
 import InnerClass.DBmethod;
-
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
 
 /**
  * 유저들의 정보를 DB에서 가져와 아이디와 패스워드를 비교하여 로그인시키는 클래스

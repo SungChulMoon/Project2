@@ -168,10 +168,10 @@ public class Main extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 				repaint();
 			}
 		});
+		
 		btn_search.setBackground(Color.WHITE);
 		btn_search.setBounds(1056, 45, 40, 40);
 		contentPane.add(btn_search);

@@ -2,18 +2,8 @@ package UserInterface;
 
 import java.awt.*;
 import javax.swing.*;
-
-import java.awt.EventQueue;
-
-import javax.swing.border.EmptyBorder;
-
+import java.awt.event.*;
 import InnerClass.DBmethod;
-
-import java.awt.Color;
-import java.awt.Font;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class adminPage extends JFrame {
 	   ImageIcon Icon_admin = new ImageIcon("img/lb_admin_page.png");
@@ -24,17 +14,16 @@ public class adminPage extends JFrame {
 	   private JTextField tf_tip;
 	   private JTextField tf_link;
 
-
-	   /**
-	    * Create the frame.
-	    */
 	   public adminPage() {
 	      Toolkit toolkit = Toolkit.getDefaultToolkit();
 	      Image img = toolkit.getImage("img/Icon.png");
 	      setIconImage(img);
+
+		  setTitle("¿þ´õ¸®½¬");
 	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      setBounds(100, 100, 940, 580);
+	      setBounds(100, 100, 940, 400);
 	      setResizable(false);
+	      
 	      contentPane = new JPanel(){
 	         public void paintComponent(Graphics g) {
 	            Rectangle r = getVisibleRect();
@@ -43,13 +32,18 @@ public class adminPage extends JFrame {
 	            super.paintComponent(g);
 	         }
 	      };
-		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
+		JLabel lb_tip = new JLabel(Icon_tip);
+		JLabel lb_link = new JLabel(Icon_link);
+		JLabel lb_admin = new JLabel(Icon_admin);
+		tf_tip = new JTextField();
+		tf_link = new JTextField();
+		JButton btn_addtip = new JButton(new ImageIcon("img/btn_admin_addtip.png"));
+		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
+		JButton btn_cloth = new JButton(new ImageIcon("img/btn_cloth.png"));
 		JComboBox cb_weather = new JComboBox();
-		cb_weather.setBounds(89, 161, 122, 24);
 		cb_weather.addItem("Clear");
 		cb_weather.addItem("Rain");
 		cb_weather.addItem("Drizzle");
@@ -58,38 +52,20 @@ public class adminPage extends JFrame {
 		cb_weather.addItem("Fog");
 		cb_weather.addItem("Clouds");
 		cb_weather.addItem("Snow");
-		contentPane.add(cb_weather);
-
-		tf_tip = new JTextField();
-		tf_tip.setBounds(325, 153, 520, 40);
-		contentPane.add(tf_tip);
-		tf_tip.setColumns(10);
-
-		tf_link = new JTextField();
-		tf_link.setColumns(10);
-		tf_link.setBounds(325, 205, 520, 40);
-		contentPane.add(tf_link);
-
-		JLabel lb_tip = new JLabel(Icon_tip);
-		lb_tip.setFont(new Font("±¼¸²", Font.BOLD, 22));
-		lb_tip.setForeground(Color.BLACK);
+		
 		lb_tip.setBounds(225, 152, 80, 40);
-		contentPane.add(lb_tip);
-
-		JLabel lb_link = new JLabel(Icon_link);
-		lb_link.setFont(new Font("±¼¸²", Font.BOLD, 22));
 		lb_link.setBounds(225, 204, 80, 40);
-		contentPane.add(lb_link);
-
-		JLabel lb_admin = new JLabel(Icon_admin);
-		lb_admin.setFont(new Font("±¼¸²", Font.BOLD, 33));
 		lb_admin.setBounds(325, 40, 318, 73);
-		contentPane.add(lb_admin);
-
-		JButton btn_addtip = new JButton(new ImageIcon("img/btn_admin_addtip.png"));
-		btn_addtip.setBackground(Color.WHITE);
+		tf_tip.setBounds(325, 153, 520, 40);
+		tf_link.setBounds(325, 205, 520, 40);
 		btn_addtip.setBounds(725, 270, 120, 40);
-		contentPane.add(btn_addtip);
+		btn_back.setBounds(33, 33, 51, 51);
+		btn_cloth.setBounds(325, 270, 120, 40);
+		cb_weather.setBounds(89, 161, 122, 24);
+		
+		tf_tip.setColumns(10);
+		tf_link.setColumns(10);
+
 		btn_addtip.addActionListener(new ActionListener() {
 
 			@Override
@@ -114,10 +90,6 @@ public class adminPage extends JFrame {
 			}
 		});
 
-		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
-		btn_back.setBackground(Color.WHITE);
-		btn_back.setBounds(33, 33, 51, 51);
-		contentPane.add(btn_back);
 		btn_back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -128,5 +100,14 @@ public class adminPage extends JFrame {
 			}
 		});
 
+		contentPane.add(lb_tip);
+		contentPane.add(lb_link);
+		contentPane.add(lb_admin);
+		contentPane.add(tf_tip);
+		contentPane.add(tf_link);
+		contentPane.add(btn_addtip);
+		contentPane.add(btn_back);
+		contentPane.add(btn_cloth);
+		contentPane.add(cb_weather);
 	}
 }
