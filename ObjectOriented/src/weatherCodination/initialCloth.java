@@ -5,6 +5,9 @@ import java.util.*;
 
 import javax.swing.ImageIcon;
 
+import InnerClass.CodiOb;
+import InnerClass.DBmethod;
+
 
 /** 
  * 옷 객체를 생성하는 클래스
@@ -13,6 +16,8 @@ import javax.swing.ImageIcon;
  * 
  */
 public class initialCloth {
+	/**파일과 관련된 옷 객체를 담고 있는 ArrayList*/
+	static public ArrayList<CodiOb> clothArr=new ArrayList<CodiOb>();
 	/**아우터 객체를 담고 있는 ArrayList*/
 	static public ArrayList<outer> clo_outer = new ArrayList<outer>();
 	/**상의 객체를 담고 있는 ArrayList*/
@@ -32,6 +37,12 @@ public class initialCloth {
 	initialCloth(String sex, String body) {
 		
 		this.sex=sex;
+		
+		try {
+			clothArr=DBmethod.selectCodi(sex);
+		}catch(Exception e) {
+			System.out.println("cloth File is empty.");
+		}
 		
 		this.initialOuter();
 		this.initialTop();
@@ -76,7 +87,7 @@ public class initialCloth {
 		
 		String outerPath=null;
 
-		if(sex.equals("남자")) {			
+		if(sex.equals("남자")) {
 			outerPath=imgPath + "outer/man/";
 			
 			for (int i = 0; i < m_initialOuter.length; i++) {
@@ -98,8 +109,8 @@ public class initialCloth {
 				clo_outer.add(tmp);
 			}
 		}
+	}	
 	
-	}
 	/**
 	 * 초기 top객체를 생성해 ArrayList인 clo_top에 삽입하는 함수
 	 * */

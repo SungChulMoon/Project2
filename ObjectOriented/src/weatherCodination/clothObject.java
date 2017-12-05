@@ -19,7 +19,7 @@ public class clothObject {
 	int thick;
 	/**스타일을 나타내는 int배열 변수*/
 	int[] style=new int [4];
-	/**스타일을 나타내는 int배열 변수*/
+	/**체형을 나타내는 int배열 변수*/
 	int[] body=new int [4];
 	/**옷의 이미지를 나타내는 Image 변수*/
 	Image image;
@@ -39,7 +39,10 @@ public class clothObject {
 		weather=wt;
 		thick=th;
 		for(int i=0; i<4; i++) style[i]=st[i];
-		for(int i=0; i<4; i++) bd[i]=bd[i];
+		
+		for(int i=0; i<4; i++) {
+			body[i]=bd[i];
+		}
 
 		image=img;
 		link=lk;
