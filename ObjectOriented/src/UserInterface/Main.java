@@ -59,7 +59,7 @@ public class Main extends JFrame {
 	tiplink tl3;
 
 	public Main(String id) {
-		initialCloth.cloclear();
+		initialFileCloth.cloclear();
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Image img = toolkit.getImage("img/Icon.png");
 		setIconImage(img);
