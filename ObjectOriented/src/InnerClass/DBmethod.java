@@ -166,6 +166,38 @@ public class DBmethod {
 		}
 		return arr;
 	}
+	public static int insertcodi(CodiOb co)throws Exception {
+		getInfo();
+		PreparedStatement pst = conn.prepareStatement("insert into codi values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		pst.setString(1, co.getFilename());
+		pst.setString(2, co.getFilepath());
+		pst.setString(3, co.getSeason());
+		pst.setString(4, co.getThick());
+		pst.setString(5, co.getGender());
+		pst.setString(6, co.getLink());
+		pst.setString(7, co.getType());
+		pst.setString(8, co.getStyle1());
+		pst.setString(9, co.getStyle2());
+		pst.setString(10, co.getStyle3());
+		pst.setString(11, co.getStyle4());
+		pst.setString(12, co.getBody1());
+		pst.setString(13, co.getBody2());
+		pst.setString(14, co.getBody3());
+		pst.setString(15, co.getBody4());
+		int cnt = pst.executeUpdate();
+		return cnt;
+	}
+//	public static ArrayList<CodiOb> selectCodi(String gender)throws Exception{
+//		getInfo();
+//		ArrayList<CodiOb> coarr =new ArrayList<>();
+//		PreparedStatement pst = conn.prepareStatement("select * from codi where gender=?");
+//		pst.setString(1, gender);
+//		ResultSet rs = pst.executeQuery();
+//		while(rs.next()) {
+//		
+//		}
+//		
+//	}
 
 
 }
