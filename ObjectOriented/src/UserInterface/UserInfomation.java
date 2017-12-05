@@ -2,14 +2,30 @@ package UserInterface;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 import InnerClass.DBmethod;
 import InnerClass.UserObject;
-import java.awt.event.*;
 import java.util.ArrayList;
 
 
 public class UserInfomation extends JFrame {
 
+	ImageIcon Icon_back_join = new ImageIcon("img/lb_back_user.png");
+	ImageIcon Icon_name = new ImageIcon("img/lb_join_name.png");
+	ImageIcon Icon_local = new ImageIcon("img/lb_join_local.png");
+	ImageIcon Icon_body = new ImageIcon("img/lb_admin_body.png");
+	ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
+	ImageIcon Icon_logo = new ImageIcon("img/logo.png");
+	ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
+	ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
+	ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
+	ImageIcon Icon_w3 = new ImageIcon("img/w_body3.png");
+	ImageIcon Icon_m0 = new ImageIcon("img/m_body0.png");
+	ImageIcon Icon_m1 = new ImageIcon("img/m_body1.png");
+	ImageIcon Icon_m2 = new ImageIcon("img/m_body2.png");
+	ImageIcon Icon_m3 = new ImageIcon("img/m_body3.png");
+	ImageIcon Icon_id = new ImageIcon("img/lb_join_id.png");
+	
 	private JPanel contentPane;
 	private JTextField tf_location;
 	JRadioButton wr1;
@@ -31,26 +47,12 @@ public class UserInfomation extends JFrame {
 	private JButton btn_back;
 
 	public UserInfomation(UserObject us) {
-		ImageIcon Icon_back_join = new ImageIcon("img/lb_back_user.png");
-		ImageIcon Icon_name = new ImageIcon("img/lb_join_name.png");
-		ImageIcon Icon_local = new ImageIcon("img/lb_join_local.png");
-		ImageIcon Icon_body = new ImageIcon("img/lb_admin_body.png");
-		ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
-		ImageIcon Icon_logo = new ImageIcon("img/logo.png");
-		ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
-		ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
-		ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
-		ImageIcon Icon_w3 = new ImageIcon("img/w_body3.png");
-		ImageIcon Icon_m0 = new ImageIcon("img/m_body0.png");
-		ImageIcon Icon_m1 = new ImageIcon("img/m_body1.png");
-		ImageIcon Icon_m2 = new ImageIcon("img/m_body2.png");
-		ImageIcon Icon_m3 = new ImageIcon("img/m_body3.png");
-		ImageIcon Icon_id = new ImageIcon("img/lb_join_id.png");
 
 		setTitle("ø˛¥ı∏ÆΩ¨");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 670, 740);
 		setResizable(false);
+		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Image img = toolkit.getImage("img/Icon.png");
 		setIconImage(img);
@@ -67,155 +69,148 @@ public class UserInfomation extends JFrame {
 		setContentPane(contentPane);
 
 		JLabel lb_user_id = new JLabel(Icon_id);
-		lb_user_id.setBounds(105, 33, 130, 50);
-		contentPane.add(lb_user_id);
-
-		JLabel lb_id = new JLabel("\uBCF4\uC5EC\uC904\uC544\uC774\uB514");
-		lb_id.setFont(new Font("±º∏≤", Font.PLAIN, 20));
-		lb_id.setBounds(265, 45, 155, 25);
-		contentPane.add(lb_id);
-
+		JLabel lb_id = new JLabel();
 		JLabel lb_user_name = new JLabel(Icon_name);
-		lb_user_name.setBounds(105, 85, 130, 50);
-		contentPane.add(lb_user_name);
-
-		JLabel lb_name = new JLabel("\uBCF4\uC5EC\uC904 \uC774\uB984");
-		lb_name.setFont(new Font("±º∏≤", Font.PLAIN, 20));
-		lb_name.setBounds(265, 100, 155, 25);
-		contentPane.add(lb_name);
-
+		JLabel lb_name = new JLabel();
 		JLabel lb_user_local = new JLabel(Icon_local);
-		lb_user_local.setBounds(105, 135, 130, 50);
-		contentPane.add(lb_user_local);
-
+		JLabel lb_user_body = new JLabel(Icon_body);
+		JLabel lb_user_style = new JLabel(Icon_style);
+		JLabel lb_logo = new JLabel(Icon_logo);
 		tf_location = new JTextField();
-		tf_location.setFont(new Font("±º∏≤", Font.PLAIN, 20));
-		tf_location.setBounds(265, 155, 160, 30);
-		contentPane.add(tf_location);
-		tf_location.setColumns(10);
-
 		ButtonGroup w = new ButtonGroup();
 		ButtonGroup m = new ButtonGroup();
+		JButton btn_change = new JButton(new ImageIcon("img/btn_user_change.png"));
+		btn_back = new JButton(new ImageIcon("img/lb_back.png"));
 		wr1 = new JRadioButton(Icon_w0,true);
-		wr1.setBackground(Color.WHITE);
-		wr1.setBorderPainted(true);
-		wr1.setBounds(54, 270, 120, 180);
-		contentPane.add(wr1);
-
-		JLabel lb_user_body = new JLabel(Icon_body);
-		lb_user_body.setBounds(33, 208, 114, 50);
-		contentPane.add(lb_user_body);
-
 		wr2 = new JRadioButton(Icon_w1);
-		wr2.setBackground(Color.WHITE);
-		wr2.setBorderPainted(true);
-		wr2.setBounds(179, 270, 120, 180);
-		contentPane.add(wr2);
-
 		wr3 = new JRadioButton(Icon_w2);
-		wr3.setBackground(Color.WHITE);
-		wr3.setBounds(310, 270, 120, 180);
-		wr3.setBorderPainted(true);
-		contentPane.add(wr3);
-
 		wr4 = new JRadioButton(Icon_w3);
-		wr4.setBackground(Color.WHITE);
-		wr4.setBounds(450, 270, 120, 180);
-		wr4.setBorderPainted(true);
-		contentPane.add(wr4);
-
-		w.add(wr1);
-		w.add(wr2);
-		w.add(wr3);
-		w.add(wr4);
-
 		mr1 = new JRadioButton(Icon_m0,true);
-		mr1.setBounds(54, 270, 120, 180);
-		mr1.setBackground(Color.WHITE);
-		mr1.setBorderPainted(true);
-		contentPane.add(mr1);
-
 		mr2 = new JRadioButton(Icon_m1);
-		mr2.setBounds(179, 270, 120, 180);
-		mr2.setBackground(Color.WHITE);
-		mr2.setBorderPainted(true);
-		contentPane.add(mr2);
-
 		mr3 = new JRadioButton(Icon_m2);
-		mr3.setBounds(308, 270, 120, 180);
-		mr3.setBackground(Color.WHITE);
-		mr3.setBorderPainted(true);
-		contentPane.add(mr3);
-
 		mr4 = new JRadioButton(Icon_m3);
-		mr4.setBounds(450, 270, 120, 180);
-		mr4.setBackground(Color.WHITE);
-		mr4.setBorderPainted(true);
-		contentPane.add(mr4);
-		m.add(mr1);
-		m.add(mr2);
-		m.add(mr3);
-		m.add(mr4);
+		ch1 = new JCheckBox("Ω√≈©");
+		ch2 = new JCheckBox("≈•∆º");
+		ch3 = new JCheckBox("");
+		ch4 = new JCheckBox("∫Û∆º¡ˆ");
 		
+		lb_user_id.setBounds(105, 33, 130, 50);
+		lb_id.setBounds(265, 45, 155, 25);
+		lb_user_name.setBounds(105, 85, 130, 50);
+		lb_name.setBounds(265, 100, 155, 25);
+		lb_user_local.setBounds(105, 145, 130, 50);
+		lb_user_body.setBounds(35, 215, 115, 50);
+		lb_user_style.setBounds(55, 495, 130, 50);
+		lb_logo.setBounds(433, 33, 200, 170);
+		tf_location.setBounds(265, 155, 160, 30);
+		wr1.setBounds(55, 270, 120, 180);
+		wr2.setBounds(180, 270, 120, 180);
+		wr3.setBounds(310, 270, 120, 180);
+		wr4.setBounds(450, 270, 120, 180);
+		mr1.setBounds(54, 270, 120, 180);
+		mr2.setBounds(179, 270, 120, 180);
+		mr3.setBounds(308, 270, 120, 180);
+		mr4.setBounds(450, 270, 120, 180);
+		ch1.setBounds(105, 545, 120, 30);
+		ch2.setBounds(310, 545, 120, 30);
+		ch3.setBounds(105, 600, 120, 30);
+		ch4.setBounds(310, 600, 120, 30);
+		btn_change.setBounds(450, 600, 125, 30);
+		btn_back.setBounds(33, 33, 51, 51);
+
+		lb_id.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		lb_name.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		tf_location.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		ch1.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		ch2.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		ch3.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		ch4.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		
+		tf_location.setColumns(10);
+
+		wr1.setBackground(Color.WHITE);
+		wr2.setBackground(Color.WHITE);
+		wr3.setBackground(Color.WHITE);
+		wr4.setBackground(Color.WHITE);
+		mr1.setBackground(Color.WHITE);
+		mr2.setBackground(Color.WHITE);
+		mr3.setBackground(Color.WHITE);
+		mr4.setBackground(Color.WHITE);
+		ch1.setBackground(Color.WHITE);
+		ch2.setBackground(Color.WHITE);
+		ch3.setBackground(Color.WHITE);
+		ch4.setBackground(Color.WHITE);
+
+		ch4.setForeground(new Color(5, 97, 232));
+		ch1.setForeground(new Color(5, 97, 232));
+		ch2.setForeground(new Color(5, 97, 232));
+		ch3.setForeground(new Color(5, 97, 232));
+
+
+		btn_back.setBorderPainted(false);
+		wr1.setBorderPainted(true);
+		wr2.setBorderPainted(true);
+		wr3.setBorderPainted(true);
+		wr4.setBorderPainted(true);
+		mr1.setBorderPainted(true);
+		mr2.setBorderPainted(true);
+		mr3.setBorderPainted(true);
+		mr4.setBorderPainted(true);
+
 		wr1.addItemListener(new bodyItemcheck());
 		wr2.addItemListener(new bodyItemcheck());
 		wr3.addItemListener(new bodyItemcheck());
 		wr4.addItemListener(new bodyItemcheck());
-
 		mr1.addItemListener(new bodyItemcheck());
 		mr2.addItemListener(new bodyItemcheck());
 		mr3.addItemListener(new bodyItemcheck());
 		mr4.addItemListener(new bodyItemcheck());
-
-		ch1 = new JCheckBox("\uC2DC\uD06C");
-		ch1.setFont(new Font("±º∏≤", Font.PLAIN, 20));
-		ch1.setForeground(new Color(5, 97, 232));
-		ch1.setBackground(Color.WHITE);
-		ch1.setBounds(105, 545, 120, 29);
-		contentPane.add(ch1);
-
-		ch2 = new JCheckBox("\uD050\uD2F0");
-		ch2.setFont(new Font("±º∏≤", Font.PLAIN, 20));
-		ch2.setForeground(new Color(5, 97, 232));
-		ch2.setBackground(Color.WHITE);
-		ch2.setBounds(310, 545, 120, 29);
-		contentPane.add(ch2);
-
-		ch3 = new JCheckBox("");
-		ch3.setFont(new Font("±º∏≤", Font.PLAIN, 20));
-		ch3.setForeground(new Color(5, 97, 232));
-		ch3.setBackground(Color.WHITE);
-		ch3.setBounds(105, 601, 120, 29);
-		contentPane.add(ch3);
-
-		ch4 = new JCheckBox("\uBE48\uD2F0\uC9C0");
-		ch4.setFont(new Font("±º∏≤", Font.PLAIN, 20));
-		ch4.setForeground(new Color(5, 97, 232));
-		ch4.setBackground(Color.WHITE);
-		ch4.setBounds(310, 601, 120, 29);
-		contentPane.add(ch4);
-
 		ch1.addItemListener(new itemListen());
 		ch2.addItemListener(new itemListen());
 		ch3.addItemListener(new itemListen());
 		ch4.addItemListener(new itemListen());
+		w.add(wr1);
+		w.add(wr2);
+		w.add(wr3);
+		w.add(wr4);
+		m.add(mr1);
+		m.add(mr2);
+		m.add(mr3);
+		m.add(mr4);
+		contentPane.add(lb_user_id);
+		contentPane.add(lb_id);
+		contentPane.add(lb_user_name);
+		contentPane.add(lb_name);
+		contentPane.add(lb_user_local);
+		contentPane.add(lb_user_body);
+		contentPane.add(lb_user_style);
+		contentPane.add(lb_logo);
+		contentPane.add(tf_location);
+		contentPane.add(wr1);
+		contentPane.add(wr2);
+		contentPane.add(wr3);
+		contentPane.add(wr4);
+		contentPane.add(mr1);
+		contentPane.add(mr2);
+		contentPane.add(mr3);
+		contentPane.add(mr4);
+		contentPane.add(ch1);
+		contentPane.add(ch2);
+		contentPane.add(ch3);
+		contentPane.add(ch4);
+		contentPane.add(btn_change);
+		contentPane.add(btn_back);
 
 		lb_id.setText(us.getId());
 		lb_name.setText(us.getName());
 		tf_location.setText(us.getLocation());
-		JLabel lb_user_style = new JLabel(Icon_style);
-		lb_user_style.setBounds(54, 496, 130, 50);
-		contentPane.add(lb_user_style);
 
-		JButton btn_change = new JButton(new ImageIcon("img/btn_user_change.png"));
 		btn_change.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
 				if (tf_location.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "¡ˆø™∏¶ ¿€º∫«ÿ¡÷ººø‰", "Error", JOptionPane.ERROR_MESSAGE);
 				} else if ((!ch1.isSelected()) && (!ch2.isSelected()) && (!ch3.isSelected()) && (!ch4.isSelected())) {
 					JOptionPane.showMessageDialog(null, "Ω∫≈∏¿œ¿ª «œ≥™∂Ûµµ º±≈√«ÿ¡÷ººø‰", "Error", JOptionPane.ERROR_MESSAGE);
-				
 				} else {
 					String style_str1 = "";
 					for (int i = 0; i < stylearr.size(); i++) {
@@ -234,29 +229,18 @@ public class UserInfomation extends JFrame {
 					m.setVisible(true);
 					dispose();
 				}
-
 			}
 		});
-		btn_change.setBounds(450, 601, 125, 30);
-		contentPane.add(btn_change);
 		
-		btn_back = new JButton(new ImageIcon("img/lb_back.png"));
-		btn_back.setBounds(33, 33, 51, 51);
 		btn_back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Main ma = new Main(us.getId());
 				ma.setVisible(true);
 				dispose();
-
 			}
 		});
-		btn_back.setBorderPainted(false);
-		contentPane.add(btn_back);
 		
-		JLabel lb_logo = new JLabel(Icon_logo);
-		lb_logo.setBounds(433, 33, 200, 170);
-		contentPane.add(lb_logo);
 		if (us.getGender().equals("ø©¿⁄")) {
 			ch3.setText("ºΩΩ√");
 			mr1.setVisible(false);
