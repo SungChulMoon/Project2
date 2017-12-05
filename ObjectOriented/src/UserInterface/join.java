@@ -68,6 +68,8 @@ public class join extends JFrame {
 	 * Create the frame.
 	 */
 	public join() {
+		
+		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Image img = toolkit.getImage("img/Icon.png");
 		setIconImage(img);
