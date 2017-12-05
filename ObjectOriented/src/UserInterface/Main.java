@@ -52,6 +52,10 @@ public class Main extends JFrame {
 	private JPanel panel_forecast;
 	private JPanel panel_style;
 	ArrayList<tipObject> toarr =null;
+	tiplink tl1;
+	tiplink tl2;
+	tiplink tl3;
+	
 	public Main(String id) {
 
 
@@ -148,15 +152,24 @@ public class Main extends JFrame {
 					contentPane.add(ts);
 					ts.repaint();
 					
-					
+					toarr.clear();
 					toarr = DBmethod.selecttip(nowinfo.getMain());
+					
+					la_tip0.removeMouseListener(tl1);
+					la_tip1.removeMouseListener(tl2);
+					la_tip2.removeMouseListener(tl3);
+					
+					tl1= new tiplink(toarr.get(toarr.size() - 3));
+					tl2= new tiplink(toarr.get(toarr.size() - 2));
+					tl3= new tiplink(toarr.get(toarr.size() - 1));
+					
 					la_tip0.setText(toarr.get(toarr.size()-3).getTip());
 					System.out.println(toarr.get(toarr.size()-3).getTip());
-					la_tip0.addMouseListener(new tiplink(toarr.get(toarr.size()-3)));
+					la_tip0.addMouseListener(tl1);
 					la_tip1.setText(toarr.get(toarr.size()-2).getTip());
-					la_tip1.addMouseListener(new tiplink(toarr.get(toarr.size()-2)));
+					la_tip1.addMouseListener(tl2);
 					la_tip2.setText(toarr.get(toarr.size()-1).getTip());
-					la_tip2.addMouseListener(new tiplink(toarr.get(toarr.size()-1)));
+					la_tip2.addMouseListener(tl3);
 									
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -178,13 +191,16 @@ public class Main extends JFrame {
 			e1.printStackTrace();
 		}
 		
-	
+		tl1=new tiplink(toarr.get(toarr.size()-3));
+		tl2=new tiplink(toarr.get(toarr.size()-2));
+		tl3=new tiplink(toarr.get(toarr.size()-1));
+		
 		la_tip0 = new JLabel(toarr.get(toarr.size()-3).getTip());
 		la_tip0.setFont(new Font("³ª´®¹Ù¸¥°íµñ", Font.PLAIN, 20));
 		la_tip0.setBackground(Color.WHITE);
 		la_tip0.setBounds(65, 565, 932, 40);
 		la_tip0.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		la_tip0.addMouseListener(new tiplink(toarr.get(toarr.size()-3)));
+		la_tip0.addMouseListener(tl1);
 		contentPane.add(la_tip0);
 	
 		la_tip1 = new JLabel(toarr.get(toarr.size()-2).getTip());
@@ -192,7 +208,7 @@ public class Main extends JFrame {
 		la_tip1.setBackground(Color.WHITE);
 		la_tip1.setBounds(65, 620, 932, 40);
 		la_tip1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		la_tip1.addMouseListener(new tiplink(toarr.get(toarr.size()-2)));
+		la_tip1.addMouseListener(tl2);
 		contentPane.add(la_tip1);
 		
 	
@@ -201,7 +217,7 @@ public class Main extends JFrame {
 		la_tip2.setBackground(Color.WHITE);
 		la_tip2.setBounds(65, 675, 932, 33);
 		la_tip2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		la_tip2.addMouseListener(new tiplink(toarr.get(toarr.size()-1)));
+		la_tip2.addMouseListener(tl3);
 		contentPane.add(la_tip2);
 		
 
@@ -321,29 +337,29 @@ public class Main extends JFrame {
 			break;
 		}
 	}
-	class tiplink extends MouseAdapter{
-		tipObject to;
-		public tiplink(tipObject to) {
-			this.to = to;
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			 if (e.getClickCount() > 0) {
-		          if (Desktop.isDesktopSupported()) {
-		                Desktop desktop = Desktop.getDesktop();
-		                try {
-		                    URI uri = new URI(to.getLink());
-		                    desktop.browse(uri);
-		                } catch (IOException ex) {
-		                    ex.printStackTrace();
-		                } catch (URISyntaxException ex) {
-		                    ex.printStackTrace();
-		                }
-		        }
-		      }
-		   }
-		}
-
+	
 	
 	
 }
+class tiplink extends MouseAdapter{
+	tipObject to;
+	public tiplink(tipObject to) {
+		this.to = to;
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		 if (e.getClickCount() > 0) {
+	          if (Desktop.isDesktopSupported()) {
+	                Desktop desktop = Desktop.getDesktop();
+	                try {
+	                    URI uri = new URI(to.getLink());
+	                    desktop.browse(uri);
+	                } catch (IOException ex) {
+	                    ex.printStackTrace();
+	                } catch (URISyntaxException ex) {
+	                    ex.printStackTrace();
+	                }
+	        }
+	      }
+	   }
+	}
