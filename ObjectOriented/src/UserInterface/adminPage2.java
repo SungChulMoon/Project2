@@ -2,12 +2,17 @@ package UserInterface;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 
 import InnerClass.CodiOb;
 import InnerClass.DBmethod;
 
 import java.awt.event.*;
-import java.io.File;;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;;
 
 public class adminPage2 extends JFrame {
 
@@ -20,10 +25,29 @@ public class adminPage2 extends JFrame {
 	ImageIcon Icon_lb_admin_style = new ImageIcon("img/lb_admin_style.png");
 	ImageIcon Icon_lb_admin_body = new ImageIcon("img/lb_admin_body.png");
 	ImageIcon Icon_lb_admin_link = new ImageIcon("img/lb_admin_link.png");
-	
+	String gender ="여자";
+	String clothpath ="outer";
+	String genderpath ="woman";
+	JRadioButton rd_w = new JRadioButton("여자",true);
+	JRadioButton rd_m = new JRadioButton("남자");
+	JRadioButton rd_outer = new JRadioButton("outer",true);
+	JRadioButton rd_top = new JRadioButton("top");
+	JRadioButton rd_pants = new JRadioButton("pants");
+	JRadioButton rd_shoes = new JRadioButton("shoes");
+	JComboBox cb_season = new JComboBox();
+	JComboBox cb_style1 = new JComboBox();
+	JComboBox cb_style2 = new JComboBox();
+	JComboBox cb_style3 = new JComboBox();
+	JComboBox cb_style4 = new JComboBox();
+	JComboBox cb_body1 = new JComboBox();
+	JComboBox cb_body2 = new JComboBox();
+	JComboBox cb_body3 = new JComboBox();
+	JComboBox cb_body4 = new JComboBox();
 	private JPanel contentPane;
 	private JTextField tf_fileName;
 	private JTextField tf_link;
+	
+	File selectedFile;
 
 	/**
 	 * Launch the application.
@@ -76,21 +100,7 @@ public class adminPage2 extends JFrame {
 		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
 		JButton btn_directory = new JButton(new ImageIcon("img/btn_folder.png"));
 		JButton btn_regist = new JButton(new ImageIcon("img/btn_admit_regist.png"));
-		JRadioButton rd_w = new JRadioButton("여자",true);
-		JRadioButton rd_m = new JRadioButton("남자");
-		JRadioButton rd_outer = new JRadioButton("outer",true);
-		JRadioButton rd_top = new JRadioButton("top");
-		JRadioButton rd_pants = new JRadioButton("pants");
-		JRadioButton rd_shoes = new JRadioButton("shoes");
-		JComboBox cb_season = new JComboBox();
-		JComboBox cb_style1 = new JComboBox();
-		JComboBox cb_style2 = new JComboBox();
-		JComboBox cb_style3 = new JComboBox();
-		JComboBox cb_style4 = new JComboBox();
-		JComboBox cb_body1 = new JComboBox();
-		JComboBox cb_body2 = new JComboBox();
-		JComboBox cb_body3 = new JComboBox();
-		JComboBox cb_body4 = new JComboBox();
+
 		ButtonGroup g = new ButtonGroup();
 		lb_fileName.setBounds(220, 35, 99, 52);
 		lb_gender.setBounds(230, 89, 76, 52);
@@ -122,6 +132,12 @@ public class adminPage2 extends JFrame {
 		cb_season.setBounds(330, 215, 75, 24);
 		
 
+		rd_w.addItemListener(new itemlisten());
+		rd_m.addItemListener(new itemlisten());
+		rd_outer.addItemListener(new itemlisten());
+		rd_pants.addItemListener(new itemlisten());
+		rd_top.addItemListener(new itemlisten());
+		rd_shoes.addItemListener(new itemlisten());
 		
 
 		btn_back.setBorderPainted(false);
@@ -146,6 +162,7 @@ public class adminPage2 extends JFrame {
 		rd_m.setForeground(new Color(5, 97, 232));
 		contentPane.add(rd_m);
 
+		contentPane.add(lb_type);
 		contentPane.add(lb_type);
 
 		rd_outer.setFont(new Font("굴림", Font.PLAIN, 17));
@@ -229,7 +246,9 @@ public class adminPage2 extends JFrame {
 		btn_directory.setBackground(Color.WHITE);
 
 		btn_directory.setBorderPainted(false);
-			
+		
+		btn_directory.addActionListener(new UploadActionListener());
+		
 		contentPane.add(btn_directory);
 
 		contentPane.add(btn_regist);
@@ -286,8 +305,119 @@ public class adminPage2 extends JFrame {
 		sort.add(rd_shoes);
 		btn_regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				DBmethod.insertcodi(new CodiOb(tf_fileName.getText(), filepath, season, thick, gender, link, type, style1, style2, style3, style4, body1, body2, body3, body4))
+				try {
+					int cnt =DBmethod.insertcodi(new CodiOb(tf_fileName.getText(),"src\\clothes\\"+clothpath+"\\"+genderpath+"\\"+tf_fileName.getText(), (String)cb_season.getSelectedItem(), (String)cb_thick.getSelectedItem(), (String)gender, (String)tf_link.getText(), (String)clothpath,
+							(String)cb_style1.getSelectedItem(), (String)cb_style2.getSelectedItem(), (String)cb_style3.getSelectedItem(), (String)cb_style4.getSelectedItem(),
+							(String)cb_body1.getSelectedItem(), (String)cb_body2.getSelectedItem(), (String)cb_body3.getSelectedItem(), (String)cb_body4.getSelectedItem()));
+					uploadFile(clothpath,genderpath,tf_fileName.getText());
+					if(cnt>0) {
+						JOptionPane.showMessageDialog(null, "등록 완료", "등록 완료", JOptionPane.INFORMATION_MESSAGE);
+						adminPage ap =new adminPage();
+						ap.setVisible(true);
+						dispose();
+
+					}
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 	}
+	
+
+	class UploadActionListener implements ActionListener {
+	      JFileChooser chooser;
+
+	      UploadActionListener() {
+	         chooser = new JFileChooser();
+	         
+	         chooser.setCurrentDirectory(new File(System.getProperty("user.home")+"//"+"Desktop"));
+	         
+	         FileNameExtensionFilter filter=new FileNameExtensionFilter("png 파일", "png");
+	         FileNameExtensionFilter filter2=new FileNameExtensionFilter("jpg 파일", "jpg");
+	         
+	         chooser.addChoosableFileFilter(filter);
+	         chooser.addChoosableFileFilter(filter2);
+	         
+	      }
+
+	      public void actionPerformed(ActionEvent e) {
+	         int ret = chooser.showOpenDialog(null);
+	         if (ret != JFileChooser.APPROVE_OPTION) {
+	            //            JOptionPane.showMessageDialog(null, "파일을 선택하지 않았습니다", "경고", JOptionPane.WARNING_MESSAGE);
+	            return;
+	         }
+
+	         selectedFile = chooser.getSelectedFile();
+	         
+	         tf_fileName.setText(selectedFile.getName());
+	         
+
+	         
+	      }
+	   }
+	
+	public void uploadFile(String clothpath,String genderpath,String filename) {
+		
+	      FileInputStream  fin  = null;
+	      FileOutputStream fout = null;
+	      int data = 0 ;
+
+	      try{
+	         fin = new FileInputStream(selectedFile.getPath());
+	         fout = new FileOutputStream("src\\clothes\\"+clothpath+"\\"+genderpath+"\\"+filename); //확장명 jpg는 바꾸면 안됨
+	         while(true) {
+	            data = fin.read();
+	            if( data == -1) break;
+	            fout.write(data); 
+	         }
+	         System.out.println();
+	         System.out.println(selectedFile.getName() + " 저장 완료");
+
+	      }
+	      catch(IOException e1) {
+	         System.out.println("파일오픈실패");
+	         e1.printStackTrace();
+	      }
+	      finally {
+	         try   {
+	            fin.close();
+	            fout.close();
+	         }
+	         catch(Exception e1) {
+
+	         }
+	      }
+	      System.out.println("작업종료");
+	}
+	class itemlisten implements ItemListener{
+
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+			if(e.getSource()==rd_w) {
+				gender="여자";
+				genderpath="woman";
+			}
+			else if(e.getSource()==rd_m) {
+				gender="남자";
+				genderpath="man";
+			}
+			else if(e.getSource()==rd_outer) {
+				clothpath="outer";
+			}
+			else if(e.getSource()==rd_top) {
+				clothpath="top";
+			}
+			else if(e.getSource()==rd_pants) {
+				clothpath="pants";
+			}
+			else if(e.getSource()==rd_shoes) {
+				clothpath="shoes";
+			}
+			
+		}
+		
+	}
+	
 }
