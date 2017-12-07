@@ -31,13 +31,11 @@ public class codiObject {
 	 * 완성코디 객체를 생성하기 위한 생성자
 	 * 랜덤으로 우선 순위 매트릭스에서 값을 추출해서 코디를 완성한다.
 	 * */
-	codiObject() {
-		System.out.println(random.nextInt(3));
-		
-		codiOuter=initialFileCloth.clo_outer.get(matchCloth.priorityMatrix[0][random.nextInt(3)]);
-		codiTop=initialFileCloth.clo_top.get(matchCloth.priorityMatrix[1][random.nextInt(3)]);
-		codiPants=initialFileCloth.clo_pants.get(matchCloth.priorityMatrix[2][random.nextInt(3)]);
-		codiShoes=initialFileCloth.clo_shoes.get(matchCloth.priorityMatrix[3][random.nextInt(3)]);
+	codiObject(matchCloth match) {
+		codiOuter=initialFileCloth.clo_outer.get(match.priorityMatrix[0][random.nextInt(3)]);
+		codiTop=initialFileCloth.clo_top.get(match.priorityMatrix[1][random.nextInt(3)]);
+		codiPants=initialFileCloth.clo_pants.get(match.priorityMatrix[2][random.nextInt(3)]);
+		codiShoes=initialFileCloth.clo_shoes.get(match.priorityMatrix[3][random.nextInt(3)]);
 
 	}
 }

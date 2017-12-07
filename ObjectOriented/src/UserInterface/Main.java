@@ -164,6 +164,8 @@ public class Main extends JFrame {
 					la_tip1.addMouseListener(tl2);
 					la_tip2.setText(toarr.get(toarr.size() - 1).getTip());
 					la_tip2.addMouseListener(tl3);
+					
+					
 
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

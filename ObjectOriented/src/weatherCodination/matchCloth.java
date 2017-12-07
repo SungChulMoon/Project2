@@ -18,9 +18,9 @@ public class matchCloth {
 	/**우선순위를 정하기 위해 스타일에 두는 가중치*/
 	static int style_weight;
 	/**옷마다 가중치에 따라 계산된 결과를 저장할 옷 매트릭스*/
-	public static int[][] clothMatrix=new int [4][];
+	public int[][] clothMatrix=new int[4][];
 	/**옷 매트릭스를 통해서 나온 값을 통해 우선순위 1~3까지 저장한 우선순위 매트릭스*/
-	public static int[][] priorityMatrix=new int[4][3];
+	public int[][] priorityMatrix=new int[4][3];
 	/**DB를 통해 들어온 스타일 String을 저장할 String 배열*/
 	String[] styleArray;
 	/**DB를 통해 들어온 체형의 가중치를 담고 있을  int 변수*/
@@ -35,16 +35,12 @@ public class matchCloth {
 	 * @param sizeSt 선택한 style갯수 문자열
 	 * */
 	matchCloth(int temp, String styleSt, String sizeSt, String body) {
-		clothMatrix[0]=new int[initialFileCloth.clo_outer.size()];
-		clothMatrix[1]=new int[initialFileCloth.clo_top.size()];
-		clothMatrix[2]=new int[initialFileCloth.clo_pants.size()];
-		clothMatrix[3]=new int[initialFileCloth.clo_shoes.size()];
-		
 		parameterTranslate(styleSt, sizeSt, body);
 		weightAssignment(temp);
 		produceClothMatrix();
 		priorityMatrix();
 	}
+
 	
 	/**
 	 * DB를 통해 들어온 매개변수를 쓰기 편하게 변형하는 함수 
@@ -122,6 +118,12 @@ public class matchCloth {
 		int cnt=0;
 		int style;
 		int n;
+	
+		
+		clothMatrix[0]=new int[initialFileCloth.clo_outer.size()];
+		clothMatrix[1]=new int[initialFileCloth.clo_top.size()];
+		clothMatrix[2]=new int[initialFileCloth.clo_pants.size()];
+		clothMatrix[3]=new int[initialFileCloth.clo_shoes.size()];
 		
 		
 		Random random=new Random();
@@ -211,11 +213,20 @@ public class matchCloth {
 					priorityMatrix[n][3-j]=priorityMatrix[n][3-j-1];
 				}
 				priorityMatrix[n][0]=i;
-			}else if(clothMatrix[n][priorityMatrix[n][1]]<=clothMatrix[n][i] && clothMatrix[n][priorityMatrix[n][2]]>clothMatrix[n][i]) {
-				priorityMatrix[n][2]=priorityMatrix[n][1];
+				
+			}else if(priorityMatrix[n][1]<0) {
 				priorityMatrix[n][1]=i;
-			}else if(clothMatrix[n][priorityMatrix[n][2]]<=clothMatrix[n][i]) {
-				priorityMatrix[n][2]=i;
+				
+			}else if(priorityMatrix[n][2]<0) {
+					priorityMatrix[n][2]=i;
+				
+			}else if(priorityMatrix[n][1]>=0 && priorityMatrix[n][2]>=0) {
+				if(clothMatrix[n][priorityMatrix[n][1]]<=clothMatrix[n][i] && clothMatrix[n][priorityMatrix[n][2]]>clothMatrix[n][i]) {
+					priorityMatrix[n][2]=priorityMatrix[n][1];
+					priorityMatrix[n][1]=i;
+				}else if(clothMatrix[n][priorityMatrix[n][2]]<=clothMatrix[n][i]) {
+					priorityMatrix[n][2]=i;
+				}
 			}
 		}
 	}
@@ -227,7 +238,7 @@ public class matchCloth {
 		
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 3; j++) {
-				priorityMatrix[i][j] = 0;
+				priorityMatrix[i][j] = -1;
 			}
 		}
 			

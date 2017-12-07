@@ -45,8 +45,7 @@ public class codiDisplay extends JPanel {
 	 */
 	public codiDisplay(String sex, String id, String temp, String stylest, String sizest, String body){
 		setLayout(null);
-		
-		
+
 		initialFileCloth testAddCloth=new initialFileCloth(sex);
 		
 		panel=new codiPanel(Integer.parseInt(temp), stylest, sizest, body);
@@ -95,7 +94,7 @@ public class codiDisplay extends JPanel {
 			subPanel.setLayout(new GridLayout(1,4));
 			
 			codiObject codi;
-			codi= new codiObject();
+			codi= new codiObject(testMatchCloth);
 			
 			subPanel=new JPanel();
 			subPanel.setLayout(new GridLayout(1,4));
@@ -136,12 +135,13 @@ public class codiDisplay extends JPanel {
 		 */
 		private void refreshCodi(int temp, String stylest,String sizest,String body){
 			codiObject codi;
+			
 			testMatchCloth=new matchCloth(temp, stylest, sizest, body);
 						
 			subPanel=new JPanel();
 			subPanel.setLayout(new GridLayout(1,4));
 			
-			codi= new codiObject();
+			codi= new codiObject(testMatchCloth);
 			
 			subPanel=new JPanel();
 			subPanel.setLayout(new GridLayout(1,4));
