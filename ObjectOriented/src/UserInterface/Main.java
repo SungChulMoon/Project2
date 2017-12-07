@@ -28,8 +28,7 @@ import InnerClass.TipObject;
  * @see JFrame
  */
 public class Main extends JFrame {
-	ImageIcon Icon_search = new ImageIcon("img/search.PNG");
-	ImageIcon Icon_refresh = new ImageIcon("img/refresh.PNG");
+	/** */
 	LineChartEx2 ex;
 	ImageIcon weatherIcon;
 	ImageIcon weatherIcon2;
@@ -102,7 +101,7 @@ public class Main extends JFrame {
 		contentPane.add(tf_local);
 		tf_local.setColumns(10);
 
-		JButton btn_search = new JButton(Icon_search);
+		JButton btn_search = new JButton(new ImageIcon("img/search.PNG"));
 		btn_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				sl.stopThread();
@@ -140,7 +139,8 @@ public class Main extends JFrame {
 					weatherIcon2 = new ImageIcon(weather2);
 
 					ts.removeAll();
-					ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size(),us.getBody());
+					ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size(),
+							us.getBody());
 					ts.setBounds(17, 723, 1090, 279);
 					ts.setOpaque(false);
 					contentPane.add(ts);
@@ -164,8 +164,6 @@ public class Main extends JFrame {
 					la_tip1.addMouseListener(tl2);
 					la_tip2.setText(toarr.get(toarr.size() - 1).getTip());
 					la_tip2.addMouseListener(tl3);
-					
-					
 
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -174,7 +172,7 @@ public class Main extends JFrame {
 				repaint();
 			}
 		});
-		
+
 		btn_search.setBackground(Color.WHITE);
 		btn_search.setBounds(1050, 45, 40, 40);
 		contentPane.add(btn_search);
@@ -250,8 +248,7 @@ public class Main extends JFrame {
 				g.drawImage(weatherIcon.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
 			}
 		};
-		
-		
+
 		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
 		btn_back.setBackground(Color.WHITE);
 		btn_back.setBounds(33, 50, 51, 51);
@@ -284,18 +281,18 @@ public class Main extends JFrame {
 		panel_forecast.add(ex);
 		panel_forecast.setOpaque(false);
 
-		ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size(),us.getBody());
+		ts = new codiDisplay(us.getGender(), id, nowinfo.getTemp(), us.getSty_str(), us.getSty_size(), us.getBody());
 		System.out.println(us.getGender());
 		ts.setBounds(17, 723, 1090, 279);
 		ts.setOpaque(false);
 		contentPane.add(ts);
-		
+
 		JLabel lb_id = new JLabel("");
-		lb_id.setText(us.getName()+" 님 환영합니다.");
+		lb_id.setText(us.getName() + " 님 환영합니다.");
 		lb_id.setFont(new Font("굴림", Font.PLAIN, 25));
 		lb_id.setBounds(390, 20, 380, 25);
 		contentPane.add(lb_id);
-		
+
 		JButton btn_userinfo = new JButton(new ImageIcon("img/btn_main_user.png"));
 		btn_userinfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -349,6 +346,7 @@ public class Main extends JFrame {
 	}
 }
 
+/** 팁 마우스 클릭시 해당 쇼핑몰로 이동해주는 클래스 */
 class tiplink extends MouseAdapter {
 	TipObject to;
 

@@ -5,72 +5,108 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.awt.*;
 import InnerClass.DBmethod;
+
 /**
  * 유저들의 정보를 입력받아 DB로 보내고 저장시키는 GUI클래스
+ * 
  * @author Moon light
- *	@see JFrame
+ * @see JFrame
  */
 public class join extends JFrame {
-	String gender="여자";
-	String location="";
+
+	/** JLabel에 적용할 "아이디" 글자를 나타내는 ImageIcon */
+	ImageIcon Icon_id = new ImageIcon("img/lb_join_id.png");
+	/** JLabel에 적용할 "이름" 글자를 나타내는 ImageIcon */
+	ImageIcon Icon_name = new ImageIcon("img/lb_join_name.png");
+	/** JLabel에 적용할 "비밀번호" 글자를 나타내는 ImageIcon */
+	ImageIcon Icon_pass = new ImageIcon("img/lb_join_pass.png");
+	/** JLabel에 적용할 "비밀번호확인" 글자를 나타내는 ImageIcon */
+	ImageIcon Icon_passcheck = new ImageIcon("img/lb_join_passcheck.png");
+	/** JLabel에 적용할 "지역" 글자를 나타내는 ImageIcon */
+	ImageIcon Icon_local = new ImageIcon("img/lb_join_local.png");
+	/** JLabel에 적용할 "성별" 글자를 나타내는 ImageIcon */
+	ImageIcon Icon_gender = new ImageIcon("img/lb_join_gender.png");
+	/** JLabel에 적용할 "스타일" 글자를 나타내는 ImageIcon */
+	ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
+	/** join의 배경이미지에 사용하는 ImageIcon */
+	ImageIcon Icon_back_join = new ImageIcon("img/lb_back_join.png");
+	/** JRadioButton에 적용할 여자 체형1을 나타내는 ImageIcon */
+	ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
+	/** JRadioButton에 적용할 여자 체형2을 나타내는 ImageIcon */
+	ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
+	/** JRadioButton에 적용할 여자 체형3을 나타내는 ImageIcon */
+	ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
+	/** JRadioButton에 적용할 여자 체형4을 나타내는 ImageIcon */
+	ImageIcon Icon_w3 = new ImageIcon("img/w_body3.png");
+	/** JRadioButton에 적용할 남자 체형1을 나타내는 ImageIcon */
+	ImageIcon Icon_m0 = new ImageIcon("img/m_body0.png");
+	/** JRadioButton에 적용할 남자 체형2을 나타내는 ImageIcon */
+	ImageIcon Icon_m1 = new ImageIcon("img/m_body1.png");
+	/** JRadioButton에 적용할 남자 체형3을 나타내는 ImageIcon */
+	ImageIcon Icon_m2 = new ImageIcon("img/m_body2.png");
+	/** JRadioButton에 적용할 남자 체형4을 나타내는 ImageIcon */
+	ImageIcon Icon_m3 = new ImageIcon("img/m_body3.png");
+
+	/** 여자 체형1 JRadioButton */
+	JRadioButton rd_body0 = new JRadioButton(Icon_w0, true);
+	/** 여자 체형2 JRadioButton */
+	JRadioButton rd_body1 = new JRadioButton(Icon_w1);
+	/** 여자 체형3 JRadioButton */
+	JRadioButton rd_body2 = new JRadioButton(Icon_w2);
+	/** 여자 체형4 JRadioButton */
+	JRadioButton rd_body3 = new JRadioButton(Icon_w3);
+	/** 남자 체형1 JRadioButton */
+	JRadioButton rd_m_body0 = new JRadioButton(Icon_m0, true);
+	/** 남자 체형2 JRadioButton */
+	JRadioButton rd_m_body1 = new JRadioButton(Icon_m1, true);
+	/** 남자 체형3 JRadioButton */
+	JRadioButton rd_m_body2 = new JRadioButton(Icon_m2, true);
+	/** 남자 체형4 JRadioButton */
+	JRadioButton rd_m_body3 = new JRadioButton(Icon_m3, true);
+
+	String gender = "여자";
+	String location = "";
 	int cnt = 0;
 	String checkbody = "여자1";
-	ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
-	ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
-	ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
-	ImageIcon Icon_w3 = new ImageIcon("img/w_body3.png");
-	ImageIcon Icon_m0 = new ImageIcon("img/m_body0.png");
-	ImageIcon Icon_m1 = new ImageIcon("img/m_body1.png");
-	ImageIcon Icon_m2 = new ImageIcon("img/m_body2.png");
-	ImageIcon Icon_m3 = new ImageIcon("img/m_body3.png");
-	ImageIcon Icon_id = new ImageIcon("img/lb_join_id.png");
-	ImageIcon Icon_name = new ImageIcon("img/lb_join_name.png");
-	ImageIcon Icon_pass = new ImageIcon("img/lb_join_pass.png");
-	ImageIcon Icon_passcheck = new ImageIcon("img/lb_join_passcheck.png");
-	ImageIcon Icon_local = new ImageIcon("img/lb_join_local.png");
-	ImageIcon Icon_gender = new ImageIcon("img/lb_join_gender.png");
-	ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
-	ImageIcon Icon_back_join = new ImageIcon("img/lb_back_join.png");
-	ImageIcon Icon_btn_join_join = new ImageIcon("img/btn_join_join.png");
-	ImageIcon Icon_btn_check = new ImageIcon("img/btn_check.png");
-	
-	JRadioButton rd_body0 = new JRadioButton(Icon_w0, true);
-	JRadioButton rd_body1 = new JRadioButton(Icon_w1);
-	JRadioButton rd_body2 = new JRadioButton(Icon_w2);
-	JRadioButton rd_body3 = new JRadioButton(Icon_w3);
-	JRadioButton rd_m_body0 = new JRadioButton(Icon_m0, true);
-	JRadioButton rd_m_body1 = new JRadioButton(Icon_m1, true);
-	JRadioButton rd_m_body2 = new JRadioButton(Icon_m2, true);
-	JRadioButton rd_m_body3 = new JRadioButton(Icon_m3, true);
-	
+
 	ArrayList<String> arrID = new ArrayList<>();
-	
+
 	boolean checkID = false;
 	boolean checkjoin = false;
-	
+	/** component 담을 JPanel*/
 	private JPanel contentPane;
+	/** 아이디를 입력할 JTextField*/
 	private JTextField tf_join_id;
+	/** 이름를 입력할 JTextField*/
 	private JTextField tf_join_name;
+	/** 비밀번호를 입력할 JPasswordField*/
 	private JPasswordField tf_join_pass;
+	/** 비밀번호를 재입력할 JPasswordField*/
 	private JPasswordField tf_join_passcheck;
+	/** 지역를 입력할 JTextField*/
 	private JTextField tf_join_local;
+	/** 지역를 입력할 JTextField*/
 	public ArrayList<String> checkStly = new ArrayList<>();
+	/** 스타일1을 나타낼 JCheckBox*/
 	public JCheckBox cb_style0 = new JCheckBox("시크");
+	/** 스타일2을 나타낼 JCheckBox*/
 	public JCheckBox cb_style1 = new JCheckBox("큐티");
+	/** 스타일3을 나타낼 JCheckBox*/
 	public JCheckBox cb_style2 = new JCheckBox("섹시");
+	/** 스타일4을 나타낼 JCheckBox*/
 	public JCheckBox cb_style3 = new JCheckBox("빈티지");
-	
+
 	public join() {
 		setTitle("웨더리쉬");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 100, 720, 800);
 		setResizable(false);
-		
+
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Image img = toolkit.getImage("img/Icon.png");
 		setIconImage(img);
-		
-		contentPane = new JPanel(){
+
+		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {
 				Rectangle r = getVisibleRect();
 				g.drawImage(Icon_back_join.getImage(), 0, 0, r.width, r.height, null);
@@ -80,7 +116,7 @@ public class join extends JFrame {
 		};
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
+
 		JLabel lb_join_id = new JLabel(Icon_id);
 		JLabel lb_join_name = new JLabel(Icon_name);
 		JLabel lb_join_pass = new JLabel(Icon_pass);
@@ -97,8 +133,8 @@ public class join extends JFrame {
 		JRadioButton rd_woman = new JRadioButton("여자", true);
 		JRadioButton rd_man = new JRadioButton("남자");
 		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
-		JButton btn_join = new JButton(Icon_btn_join_join);
-		JButton btn_check = new JButton(Icon_btn_check);
+		JButton btn_join = new JButton(new ImageIcon("img/btn_join_join.png"));
+		JButton btn_check = new JButton(new ImageIcon("img/btn_check.png"));
 
 		rd_body0.addItemListener(new bodyItemcheck());
 		rd_body1.addItemListener(new bodyItemcheck());
@@ -147,20 +183,20 @@ public class join extends JFrame {
 		btn_join.setBounds(120, 675, 440, 51);
 		btn_check.setBounds(580, 35, 105, 40);
 		btn_back.setBounds(33, 33, 51, 51);
-		
+
 		tf_join_id.setColumns(10);
 		tf_join_name.setColumns(10);
 		tf_join_pass.setColumns(10);
 		tf_join_passcheck.setColumns(10);
 		tf_join_local.setColumns(10);
-		
+
 		cb_style0.setFont(new Font("고딕", Font.BOLD, 17));
 		cb_style1.setFont(new Font("고딕", Font.BOLD, 17));
 		cb_style2.setFont(new Font("고딕", Font.BOLD, 17));
 		cb_style3.setFont(new Font("고딕", Font.BOLD, 17));
 		rd_woman.setFont(new Font("고딕", Font.PLAIN, 20));
 		rd_man.setFont(new Font("굴림", Font.PLAIN, 20));
-		
+
 		cb_style0.setBackground(Color.WHITE);
 		cb_style1.setBackground(Color.WHITE);
 		cb_style2.setBackground(Color.WHITE);
@@ -193,7 +229,7 @@ public class join extends JFrame {
 		rd_m_body1.setBorderPainted(true);
 		rd_m_body2.setBorderPainted(true);
 		rd_m_body3.setBorderPainted(true);
-		
+
 		g.add(rd_man);
 		g.add(rd_woman);
 		g_woman.add(rd_body0);
@@ -204,7 +240,6 @@ public class join extends JFrame {
 		g_man.add(rd_m_body1);
 		g_man.add(rd_m_body2);
 		g_man.add(rd_m_body3);
-
 
 		rd_m_body0.setVisible(false);
 		rd_m_body1.setVisible(false);
@@ -237,7 +272,7 @@ public class join extends JFrame {
 			public void itemStateChanged(ItemEvent e) {
 				if (rd_man.isSelected()) {
 					cb_style2.setText("댄디");
-					
+
 					gender = "남자";
 					rd_m_body0.setVisible(true);
 					rd_m_body1.setVisible(true);
@@ -266,22 +301,20 @@ public class join extends JFrame {
 					JOptionPane.showMessageDialog(null, "이름을 작성해주세요", "Error", JOptionPane.ERROR_MESSAGE);
 				} else if (tf_join_pass.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "비밀번호를 작성해주세요", "Error", JOptionPane.ERROR_MESSAGE);
-				} else if(tf_join_local.getText().equals("")) {
-				
+				} else if (tf_join_local.getText().equals("")) {
+
 					JOptionPane.showMessageDialog(null, "지역를 작성해주세요", "Error", JOptionPane.ERROR_MESSAGE);
 				} else if ((!cb_style0.isSelected()) && (!cb_style1.isSelected()) && (!cb_style2.isSelected())
 						&& (!cb_style3.isSelected())) {
 					JOptionPane.showMessageDialog(null, "스타일을 하나라도 선택해주세요", "Error", JOptionPane.ERROR_MESSAGE);
 				} else {
 					if (tf_join_pass.getText().equals(tf_join_passcheck.getText())) {
-						if(tf_join_local.getText().equals("광주")) {
-							location ="Gwangju";
-						}
-						else if(tf_join_local.getText().equals("서울")) {
+						if (tf_join_local.getText().equals("광주")) {
+							location = "Gwangju";
+						} else if (tf_join_local.getText().equals("서울")) {
 							location = "Seoul";
-						}
-						else if(tf_join_local.getText().equals("부산")) {
-							location ="Busan";
+						} else if (tf_join_local.getText().equals("부산")) {
+							location = "Busan";
 						}
 						lb_equal.setText("일치");
 						lb_equal.setForeground(Color.GREEN);
@@ -293,8 +326,9 @@ public class join extends JFrame {
 						System.out.println(style_str);
 						try {
 							System.out.println(gender);
-							if (DBmethod.addUserInfo(tf_join_id.getText(), tf_join_pass.getText(), tf_join_name.getText(),
-									location,gender, checkbody, style_str, Integer.toString(cnt)) > 0) {
+							if (DBmethod.addUserInfo(tf_join_id.getText(), tf_join_pass.getText(),
+									tf_join_name.getText(), location, gender, checkbody, style_str,
+									Integer.toString(cnt)) > 0) {
 								JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다.", "회원가입이 완료되었습니다.",
 										JOptionPane.INFORMATION_MESSAGE);
 								dispose();
@@ -315,7 +349,6 @@ public class join extends JFrame {
 				}
 			}
 		});
-
 
 		btn_check.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -342,8 +375,7 @@ public class join extends JFrame {
 				}
 			}
 		});
-		
-	
+
 		System.out.println(cnt + "");
 		btn_back.addActionListener(new ActionListener() {
 			@Override
@@ -351,7 +383,7 @@ public class join extends JFrame {
 				Login lg = new Login();
 				lg.setVisible(true);
 				dispose();
-				
+
 			}
 		});
 		contentPane.add(lb_join_id);
@@ -386,6 +418,7 @@ public class join extends JFrame {
 		contentPane.add(btn_back);
 	}
 
+	/** 스타일 선택 클래스 */
 	class itemListen implements ItemListener {
 
 		@Override
@@ -426,8 +459,8 @@ public class join extends JFrame {
 		}
 	}
 
+	/** 체형 선택 클래스 */
 	class bodyItemcheck implements ItemListener {
-
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			if (e.getStateChange() == ItemEvent.SELECTED) {

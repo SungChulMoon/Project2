@@ -14,12 +14,15 @@ import java.util.ArrayList;
  * @see JFrame
  */
 public class Login extends JFrame {
+	/** Login의 배경이미지에 사용하는 ImageIcon*/
 	ImageIcon Icon_back_login = new ImageIcon("img/lb_back_login.png");
-	ImageIcon Icon_btn_login = new ImageIcon("img/btn_login.png");
-	ImageIcon Icon_btn_join = new ImageIcon("img/btn_join.png");
+	/** JLabel에 적용할 "ID:" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_id = new ImageIcon("img/lb_id.png");
+	/** JLabel에 적용할 "비밀번호:" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_pass = new ImageIcon("img/lb_pass.png");
+	/** JLabel에 적용할 "Login" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_login = new ImageIcon("img/lb_login.png");
+	/** JLabel에 적용할 로고 이미지를 나타내는 ImageIcon*/
 	ImageIcon Icon_logo = new ImageIcon("img/logo.png");
 	
 	private JPanel contentPane;
@@ -65,8 +68,8 @@ public class Login extends JFrame {
 		JLabel lb_logo = new JLabel(Icon_logo);
 		tf_login_id = new JTextField();
 		tf_login_pass = new JPasswordField();
-		JButton btn_login = new JButton(Icon_btn_login);
-		JButton btn_login_join = new JButton(Icon_btn_join);
+		JButton btn_login = new JButton(new ImageIcon("img/btn_login.png"));
+		JButton btn_login_join = new JButton(new ImageIcon("img/btn_join.png"));
 
 		lb_id.setBounds(225, 215, 55, 35);
 		lb_pass.setBounds(160, 265, 125, 35);
