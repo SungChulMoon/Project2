@@ -5,33 +5,45 @@ import javax.swing.*;
 import java.awt.event.*;
 import InnerClass.DBmethod;
 
+/**
+ * 관리자가 추가할 생활 팁을 DB로 보내고 저장하는 GUI클래스
+ * 
+ * @author Jaecheol
+ * @see JFrame
+ * 
+ */
 public class adminPage extends JFrame {
-	   ImageIcon Icon_admin = new ImageIcon("img/lb_admin_page.png");
-	   ImageIcon Icon_tip = new ImageIcon("img/lb_admin_tip.png");
-	   ImageIcon Icon_link = new ImageIcon("img/lb_admin_link.png");
-	   ImageIcon Icon_back_admin = new ImageIcon("img/lb_back_admin.png");
-	   private JPanel contentPane;
-	   private JTextField tf_tip;
-	   private JTextField tf_link;
+	/** JLabel에 적용할 "관리자 페이지" 글자를 나타내는 ImageIcon*/
+	ImageIcon Icon_admin = new ImageIcon("img/lb_admin_page.png");
+	/** JLabel에 적용할 "팁" 글자를 나타내는 ImageIcon*/
+	ImageIcon Icon_tip = new ImageIcon("img/lb_admin_tip.png");
+	/** JLabel에 적용할 "링크" 글자를 나타내는 ImageIcon*/
+	ImageIcon Icon_link = new ImageIcon("img/lb_admin_link.png");
+	/** adminPage의 배경이미지에 사용하는 ImageIcon*/
+	ImageIcon Icon_back_admin = new ImageIcon("img/lb_back_admin.png");
+	
+	private JPanel contentPane;
+	private JTextField tf_tip;
+	private JTextField tf_link;
 
-	   public adminPage() {
-	      Toolkit toolkit = Toolkit.getDefaultToolkit();
-	      Image img = toolkit.getImage("img/Icon.png");
-	      setIconImage(img);
+	public adminPage() {
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image img = toolkit.getImage("img/Icon.png");
+		setIconImage(img);
 
-		  setTitle("웨더리쉬");
-	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      setBounds(100, 100, 940, 400);
-	      setResizable(false);
-	      
-	      contentPane = new JPanel(){
-	         public void paintComponent(Graphics g) {
-	            Rectangle r = getVisibleRect();
-	            g.drawImage(Icon_back_admin.getImage(), 0, 0, r.width, r.height, null);
-	            setOpaque(false);
-	            super.paintComponent(g);
-	         }
-	      };
+		setTitle("웨더리쉬");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 940, 400);
+		setResizable(false);
+
+		contentPane = new JPanel() {
+			public void paintComponent(Graphics g) {
+				Rectangle r = getVisibleRect();
+				g.drawImage(Icon_back_admin.getImage(), 0, 0, r.width, r.height, null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
@@ -45,7 +57,7 @@ public class adminPage extends JFrame {
 		JButton btn_cloth = new JButton(new ImageIcon("img/btn_cloth.png"));
 		btn_cloth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				adminPage2 ap2 =new adminPage2();
+				adminPage2 ap2 = new adminPage2();
 				ap2.setVisible(true);
 				dispose();
 			}
@@ -59,7 +71,7 @@ public class adminPage extends JFrame {
 		cb_weather.addItem("Fog");
 		cb_weather.addItem("Clouds");
 		cb_weather.addItem("Snow");
-		
+
 		lb_tip.setBounds(225, 152, 80, 40);
 		lb_link.setBounds(225, 204, 80, 40);
 		lb_admin.setBounds(325, 40, 318, 73);
@@ -69,10 +81,10 @@ public class adminPage extends JFrame {
 		btn_back.setBounds(33, 33, 51, 51);
 		btn_cloth.setBounds(325, 270, 120, 40);
 		cb_weather.setBounds(89, 161, 122, 24);
-		
+
 		tf_tip.setColumns(10);
 		tf_link.setColumns(10);
-		
+
 		btn_back.setBorderPainted(false);
 
 		btn_addtip.addActionListener(new ActionListener() {
