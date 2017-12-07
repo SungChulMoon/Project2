@@ -6,24 +6,44 @@ import java.awt.event.*;
 import InnerClass.DBmethod;
 import InnerClass.UserObject;
 import java.util.ArrayList;
-
-
+/**
+ * 유저들의 수정할 정보를 입력받아 DB로 보내고 저장시키는 GUI클래스
+ * 
+ * @author Jaecheol
+ * @see JFrame
+ * 
+ */
 public class UserInfomation extends JFrame {
 
+	/** UserInfomation의 배경이미지에 사용하는 ImageIcon*/
 	ImageIcon Icon_back_join = new ImageIcon("img/lb_back_user.png");
+	/** JLabel에 적용할 "이름" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_name = new ImageIcon("img/lb_join_name.png");
+	/** JLabel에 적용할 "지역" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_local = new ImageIcon("img/lb_join_local.png");
+	/** JLabel에 적용할 "체형" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_body = new ImageIcon("img/lb_admin_body.png");
+	/** JLabel에 적용할 "스타일" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_style = new ImageIcon("img/lb_join_style.png");
+	/** JLabel에 적용할 "로고" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_logo = new ImageIcon("img/logo.png");
+	/** JRadioButton에 적용할 여자 체형1을 나타내는 ImageIcon */
 	ImageIcon Icon_w0 = new ImageIcon("img/w_body0.png");
+	/** JRadioButton에 적용할 여자 체형2을 나타내는 ImageIcon */
 	ImageIcon Icon_w1 = new ImageIcon("img/w_body1.png");
+	/** JRadioButton에 적용할 여자 체형3을 나타내는 ImageIcon */
 	ImageIcon Icon_w2 = new ImageIcon("img/w_body2.png");
+	/** JRadioButton에 적용할 여자 체형4을 나타내는 ImageIcon */
 	ImageIcon Icon_w3 = new ImageIcon("img/w_body3.png");
+	/** JRadioButton에 적용할 남자 체형1을 나타내는 ImageIcon */
 	ImageIcon Icon_m0 = new ImageIcon("img/m_body0.png");
+	/** JRadioButton에 적용할 남자 체형2을 나타내는 ImageIcon */
 	ImageIcon Icon_m1 = new ImageIcon("img/m_body1.png");
+	/** JRadioButton에 적용할 남자 체형3을 나타내는 ImageIcon */
 	ImageIcon Icon_m2 = new ImageIcon("img/m_body2.png");
+	/** JRadioButton에 적용할 남자 체형4을 나타내는 ImageIcon */
 	ImageIcon Icon_m3 = new ImageIcon("img/m_body3.png");
+	/** JLabel에 적용할 "아이디" 글자를 나타내는 ImageIcon */
 	ImageIcon Icon_id = new ImageIcon("img/lb_join_id.png");
 	
 	private JPanel contentPane;
@@ -292,7 +312,7 @@ public class UserInfomation extends JFrame {
 			System.out.println(checkbody);
 		}
 	}
-
+/** 스타일 변경 클래스*/
 	class itemListen implements ItemListener {
 
 		@Override

@@ -2,60 +2,79 @@ package UserInterface;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 
 import InnerClass.CodiOb;
 import InnerClass.DBmethod;
 
-import java.awt.event.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;;
-
+/**
+ * 관리자가 추가할 코디정보를 DB로 보내고 저장하는  GUI클래스
+ * 
+ * @author Jaecheol
+ * @see JFrame
+ * 
+ */
 public class adminPage2 extends JFrame {
-
 	ImageIcon Icon_back_admin2 = new ImageIcon("img/lb_back_admin2.png");
+	/** JLabel에 적용할 "파일" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_file = new ImageIcon("img/lb_admin_file.png");
+	/** JLabel에 적용할 "성별" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_gender = new ImageIcon("img/lb_admin_gender.png");
+	/** JLabel에 적용할 "종류" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_type = new ImageIcon("img/lb_admin_type.png");
+	/** JLabel에 적용할 "계절감" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_season = new ImageIcon("img/lb_admin_season.png");
+	/** JLabel에 적용할 "두께감" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_thick = new ImageIcon("img/lb_admin_thick.png");
+	/** JLabel에 적용할 "스타일" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_style = new ImageIcon("img/lb_admin_style.png");
+	/** JLabel에 적용할 "체형" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_body = new ImageIcon("img/lb_admin_body.png");
+	/** JLabel에 적용할 "링크" 글자를 나타내는 ImageIcon*/
 	ImageIcon Icon_lb_admin_link = new ImageIcon("img/lb_admin_link.png");
 	String gender ="여자";
 	String clothpath ="outer";
 	String genderpath ="woman";
+	/** 성별 선택 시 "여자"를 선택하는 라디오버튼*/
 	JRadioButton rd_w = new JRadioButton("여자",true);
+	/** 성별 선택 시 "남자"를 선택하는 라디오버튼*/
 	JRadioButton rd_m = new JRadioButton("남자");
+	/** 종류 선택 시 "outer"를 선택하는 라디오버튼*/
 	JRadioButton rd_outer = new JRadioButton("outer",true);
+	/** 종류 선택 시 "top"를 선택하는 라디오버튼*/
 	JRadioButton rd_top = new JRadioButton("top");
+	/** 종류 선택 시 "pants"를 선택하는 라디오버튼*/
 	JRadioButton rd_pants = new JRadioButton("pants");
+	/** 종류 선택 시 "shoes"를 선택하는 라디오버튼*/
 	JRadioButton rd_shoes = new JRadioButton("shoes");
+	/** 계절감 수치를 선택하는 콤보박스*/
 	JComboBox cb_season = new JComboBox();
+	/** 스타일1의 수치를 선택하는 콤보박스*/
 	JComboBox cb_style1 = new JComboBox();
+	/** 스타일2의 수치를 선택하는 콤보박스*/
 	JComboBox cb_style2 = new JComboBox();
+	/** 스타일3의 수치를 선택하는 콤보박스*/
 	JComboBox cb_style3 = new JComboBox();
+	/** 스타일4의 수치를 선택하는 콤보박스*/
 	JComboBox cb_style4 = new JComboBox();
+	/** 체형1의 수치를 선택하는 콤보박스*/
 	JComboBox cb_body1 = new JComboBox();
+	/** 체형2의 수치를 선택하는 콤보박스*/
 	JComboBox cb_body2 = new JComboBox();
+	/** 체형3의 수치를 선택하는 콤보박스*/
 	JComboBox cb_body3 = new JComboBox();
+	/** 체형4의 수치를 선택하는 콤보박스*/
 	JComboBox cb_body4 = new JComboBox();
 	private JPanel contentPane;
 	private JTextField tf_fileName;
 	private JTextField tf_link;
-	
 	File selectedFile;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public adminPage2() {
 		setTitle("웨더리쉬");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -100,6 +119,7 @@ public class adminPage2 extends JFrame {
 		JButton btn_back = new JButton(new ImageIcon("img/lb_back.png"));
 		JButton btn_directory = new JButton(new ImageIcon("img/btn_folder.png"));
 		JButton btn_regist = new JButton(new ImageIcon("img/btn_admit_regist.png"));
+		JComboBox cb_thick = new JComboBox();
 
 		ButtonGroup g = new ButtonGroup();
 		lb_fileName.setBounds(220, 35, 99, 52);
@@ -130,8 +150,16 @@ public class adminPage2 extends JFrame {
 		rd_pants.setBounds(516, 155, 76, 27);
 		rd_shoes.setBounds(620, 155, 85, 27);
 		cb_season.setBounds(330, 215, 75, 24);
+		cb_body1.setBounds(372, 343, 53, 24);
+		cb_body2.setBounds(498, 340, 53, 24);
+		cb_body3.setBounds(620, 343, 53, 24);
+		cb_body4.setBounds(746, 343, 53, 24);
+		cb_thick.setBounds(620, 215, 69, 24);
+		cb_style1.setBounds(372, 275, 53, 24);
+		cb_style2.setBounds(498, 275, 53, 24);
+		cb_style3.setBounds(620, 275, 53, 24);
+		cb_style4.setBounds(746, 275, 53, 24);
 		
-
 		rd_w.addItemListener(new itemlisten());
 		rd_m.addItemListener(new itemlisten());
 		rd_outer.addItemListener(new itemlisten());
@@ -139,170 +167,124 @@ public class adminPage2 extends JFrame {
 		rd_top.addItemListener(new itemlisten());
 		rd_shoes.addItemListener(new itemlisten());
 		
+		rd_w.setFont(new Font("굴림", Font.PLAIN, 17));
+		rd_m.setFont(new Font("굴림", Font.PLAIN, 17));
+		rd_outer.setFont(new Font("굴림", Font.PLAIN, 17));
+		rd_top.setFont(new Font("굴림", Font.PLAIN, 17));
+		rd_pants.setFont(new Font("굴림", Font.PLAIN, 17));
+		rd_shoes.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_style1.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_style2.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_style3.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_style4.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_body1.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_body2.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_body3.setFont(new Font("굴림", Font.PLAIN, 17));
+		lb_body4.setFont(new Font("굴림", Font.PLAIN, 17));
 
 		btn_back.setBorderPainted(false);
-		contentPane.add(btn_back);
-
-		contentPane.add(lb_fileName);
-
-		contentPane.add(tf_fileName);
-		tf_fileName.setColumns(10);
-
-		contentPane.add(lb_gender);
-		g.add(rd_w);
-		g.add(rd_m);
-		
-		rd_w.setFont(new Font("굴림", Font.PLAIN, 17));
-		rd_w.setBackground(Color.WHITE);
-		rd_w.setForeground(new Color(5, 97, 232));
-		contentPane.add(rd_w);
-
-		rd_m.setFont(new Font("굴림", Font.PLAIN, 17));
-		rd_m.setBackground(Color.WHITE);
-		rd_m.setForeground(new Color(5, 97, 232));
-		contentPane.add(rd_m);
-
-		contentPane.add(lb_type);
-		contentPane.add(lb_type);
-
-		rd_outer.setFont(new Font("굴림", Font.PLAIN, 17));
-		rd_outer.setForeground(new Color(5, 97, 232));
-		rd_outer.setBackground(Color.WHITE);
-		contentPane.add(rd_outer);
-
-		rd_top.setFont(new Font("굴림", Font.PLAIN, 17));
-		rd_top.setForeground(new Color(5, 97, 232));
-		rd_top.setBackground(Color.WHITE);
-		contentPane.add(rd_top);
-
-		rd_pants.setFont(new Font("굴림", Font.PLAIN, 17));
-		rd_pants.setForeground(new Color(5, 97, 232));
-		rd_pants.setBackground(Color.WHITE);
-		contentPane.add(rd_pants);
-
-		rd_shoes.setFont(new Font("굴림", Font.PLAIN, 17));
-		rd_shoes.setForeground(new Color(5, 97, 232));
-		rd_shoes.setBackground(Color.WHITE);
-		contentPane.add(rd_shoes);
-
-		contentPane.add(lb_season);
-
-		cb_season.addItem("WARM");
-		cb_season.addItem("COLD");
-		contentPane.add(cb_season);
-
-		contentPane.add(lb_thick);
-
-		JComboBox cb_thick = new JComboBox();
-		cb_thick.setBounds(620, 215, 69, 24);
-		cb_style1.setBounds(372, 275, 53, 24);
-		cb_style2.setBounds(498, 275, 53, 24);
-		for (int i = 0; i < 6; i++)
-			cb_thick.addItem(Integer.toString(i));
-
-		contentPane.add(cb_thick);
-
-		contentPane.add(lb_style);
-
-		lb_style1.setFont(new Font("굴림", Font.PLAIN, 17));
-		lb_style1.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_style1);
-
-		for (int i = 0; i < 6; i++)
-			cb_style1.addItem(Integer.toString(i));
-		contentPane.add(cb_style1);
-
-		lb_style2.setFont(new Font("굴림", Font.PLAIN, 17));
-		lb_style2.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_style2);
-
-		for (int i = 0; i < 6; i++)
-			cb_style2.addItem(Integer.toString(i));
-		contentPane.add(cb_style2);
-
-		lb_style3.setFont(new Font("굴림", Font.PLAIN, 17));
-		lb_style3.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_style3);
-
-		cb_style3.setBounds(620, 275, 53, 24);
-		for (int i = 0; i < 6; i++)
-			cb_style3.addItem(Integer.toString(i));
-		contentPane.add(cb_style3);
-
-		lb_style4.setFont(new Font("굴림", Font.PLAIN, 17));
-		lb_style4.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_style4);
-
-		cb_style4.setBounds(746, 275, 53, 24);
-		for (int i = 0; i < 6; i++)
-			cb_style4.addItem(Integer.toString(i));
-		contentPane.add(cb_style4);
-
-		contentPane.add(lb_link);
-
-		tf_link.setColumns(10);
-		contentPane.add(tf_link);
-
-		btn_directory.setBackground(Color.WHITE);
-
 		btn_directory.setBorderPainted(false);
 		
-		btn_directory.addActionListener(new UploadActionListener());
+		tf_fileName.setColumns(10);
+		tf_link.setColumns(10);
+
+		rd_w.setBackground(Color.WHITE);
+		rd_m.setBackground(Color.WHITE);
+		rd_outer.setBackground(Color.WHITE);
+		rd_top.setBackground(Color.WHITE);
+		rd_pants.setBackground(Color.WHITE);
+		rd_shoes.setBackground(Color.WHITE);
+		btn_directory.setBackground(Color.WHITE);
 		
-		contentPane.add(btn_directory);
-
-		contentPane.add(btn_regist);
-
-		contentPane.add(lb_body);
-
-		lb_body1.setFont(new Font("굴림", Font.PLAIN, 17));
+		rd_w.setForeground(new Color(5, 97, 232));
+		rd_m.setForeground(new Color(5, 97, 232));
+		rd_outer.setForeground(new Color(5, 97, 232));
+		rd_top.setForeground(new Color(5, 97, 232));
+		rd_pants.setForeground(new Color(5, 97, 232));
+		rd_shoes.setForeground(new Color(5, 97, 232));
+		lb_style1.setForeground(new Color(5, 97, 232));
+		lb_style2.setForeground(new Color(5, 97, 232));
+		lb_style3.setForeground(new Color(5, 97, 232));
+		lb_style4.setForeground(new Color(5, 97, 232));
 		lb_body1.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_body1);
+		lb_body2.setForeground(new Color(5, 97, 232));
+		lb_body3.setForeground(new Color(5, 97, 232));
+		lb_body4.setForeground(new Color(5, 97, 232));
 
-		cb_body1.setBounds(372, 343, 53, 24);
+		for (int i = 0; i < 6; i++)
+			cb_thick.addItem(Integer.toString(i));
+		for (int i = 0; i < 6; i++)
+			cb_style1.addItem(Integer.toString(i));
+		for (int i = 0; i < 6; i++)
+			cb_style2.addItem(Integer.toString(i));
+		for (int i = 0; i < 6; i++)
+			cb_style3.addItem(Integer.toString(i));
+		for (int i = 0; i < 6; i++)
+			cb_style4.addItem(Integer.toString(i));
 		for (int i = 0; i < 6; i++)
 			cb_body1.addItem(Integer.toString(i));
-		contentPane.add(cb_body1);
-
-		lb_body2.setFont(new Font("굴림", Font.PLAIN, 17));
-		lb_body2.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_body2);
-
-		cb_body2.setBounds(498, 340, 53, 24);
 		for (int i = 0; i < 6; i++)
 			cb_body2.addItem(Integer.toString(i));
-		contentPane.add(cb_body2);
-
-		lb_body3.setFont(new Font("굴림", Font.PLAIN, 17));
-		lb_body3.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_body3);
-
-		cb_body3.setBounds(620, 343, 53, 24);
 		for (int i = 0; i < 6; i++)
 			cb_body3.addItem(Integer.toString(i));
-		contentPane.add(cb_body3);
-
-		lb_body4.setFont(new Font("굴림", Font.PLAIN, 17));
-		lb_body4.setForeground(new Color(5, 97, 232));
-		contentPane.add(lb_body4);
-
-		cb_body4.setBounds(746, 343, 53, 24);
 		for (int i = 0; i < 6; i++)
 			cb_body4.addItem(Integer.toString(i));
-		contentPane.add(cb_body4);
+		
+		btn_directory.addActionListener(new UploadActionListener());
 		btn_back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				adminPage ap = new adminPage();
 				ap.setVisible(true);
 				dispose();
-
 			}
 		});
+		
+		g.add(rd_w);
+		g.add(rd_m);
+		contentPane.add(btn_back);
+		contentPane.add(lb_fileName);
+		contentPane.add(tf_fileName);
+		contentPane.add(lb_gender);
+		contentPane.add(rd_w);
+		contentPane.add(rd_m);
+		contentPane.add(lb_type);
+		contentPane.add(rd_outer);
+		contentPane.add(rd_pants);
+		contentPane.add(rd_shoes);
+		contentPane.add(lb_season);
+		cb_season.addItem("WARM");
+		cb_season.addItem("COLD");
+		contentPane.add(cb_season);
+		contentPane.add(lb_thick);
+		contentPane.add(cb_thick);
+		contentPane.add(lb_style);
+		contentPane.add(lb_style1);
+		contentPane.add(lb_style2);
+		contentPane.add(lb_style3);
+		contentPane.add(lb_style4);
+		contentPane.add(lb_link);
+		contentPane.add(cb_style1);
+		contentPane.add(cb_style2);
+		contentPane.add(cb_style3);
+		contentPane.add(cb_style4);
+		contentPane.add(tf_link);
+		contentPane.add(btn_directory);
+		contentPane.add(btn_regist);
+		contentPane.add(lb_body);
+		contentPane.add(lb_body1);
+		contentPane.add(cb_body1);
+		contentPane.add(lb_body2);
+		contentPane.add(cb_body2);
+		contentPane.add(lb_body3);
+		contentPane.add(cb_body3);
+		contentPane.add(lb_body4);
+		contentPane.add(cb_body4);
 		sort.add(rd_outer);
 		sort.add(rd_top);
 		sort.add(rd_pants);
 		sort.add(rd_shoes);
+		
 		btn_regist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -318,14 +300,13 @@ public class adminPage2 extends JFrame {
 
 					}
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
 	}
 	
-
+	/**마우스 클릭시 파일을 업로드 하는 클래스*/
 	class UploadActionListener implements ActionListener {
 	      JFileChooser chooser;
 
@@ -357,7 +338,13 @@ public class adminPage2 extends JFrame {
 	         
 	      }
 	   }
-	
+	/**
+	 * 코디 추가시 파일을 업로드하는 메소드
+	 * 
+	 * @param clothpath
+	 * @param genderpath
+	 * @param filename
+	 */
 	public void uploadFile(String clothpath,String genderpath,String filename) {
 		
 	      FileInputStream  fin  = null;
@@ -391,6 +378,7 @@ public class adminPage2 extends JFrame {
 	      }
 	      System.out.println("작업종료");
 	}
+	/**성별과 종류에 따라 코디 추가시 파일이 저장되는 경로를 결정하는 클래스 */
 	class itemlisten implements ItemListener{
 
 		@Override
@@ -419,5 +407,4 @@ public class adminPage2 extends JFrame {
 		}
 		
 	}
-	
 }
