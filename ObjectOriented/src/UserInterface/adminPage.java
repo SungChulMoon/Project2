@@ -67,10 +67,12 @@ public class adminPage extends JFrame {
 		cb_weather.addItem("Rain");
 		cb_weather.addItem("Drizzle");
 		cb_weather.addItem("Mist");
+		cb_weather.addItem("Smoke");
 		cb_weather.addItem("Haze");
 		cb_weather.addItem("Fog");
 		cb_weather.addItem("Clouds");
 		cb_weather.addItem("Snow");
+		cb_weather.addItem("ThunderStorm");
 
 		lb_tip.setBounds(225, 152, 80, 40);
 		lb_link.setBounds(225, 204, 80, 40);
