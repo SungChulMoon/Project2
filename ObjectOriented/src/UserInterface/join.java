@@ -73,17 +73,27 @@ public class join extends JFrame {
 
 	boolean checkID = false;
 	boolean checkjoin = false;
-
+	/** component 담을 JPanel*/
 	private JPanel contentPane;
+	/** 아이디를 입력할 JTextField*/
 	private JTextField tf_join_id;
+	/** 이름를 입력할 JTextField*/
 	private JTextField tf_join_name;
+	/** 비밀번호를 입력할 JPasswordField*/
 	private JPasswordField tf_join_pass;
+	/** 비밀번호를 재입력할 JPasswordField*/
 	private JPasswordField tf_join_passcheck;
+	/** 지역를 입력할 JTextField*/
 	private JTextField tf_join_local;
+	/** 지역를 입력할 JTextField*/
 	public ArrayList<String> checkStly = new ArrayList<>();
+	/** 스타일1을 나타낼 JCheckBox*/
 	public JCheckBox cb_style0 = new JCheckBox("시크");
+	/** 스타일2을 나타낼 JCheckBox*/
 	public JCheckBox cb_style1 = new JCheckBox("큐티");
+	/** 스타일3을 나타낼 JCheckBox*/
 	public JCheckBox cb_style2 = new JCheckBox("섹시");
+	/** 스타일4을 나타낼 JCheckBox*/
 	public JCheckBox cb_style3 = new JCheckBox("빈티지");
 
 	public join() {
@@ -449,7 +459,7 @@ public class join extends JFrame {
 		}
 	}
 
-	/** 체형선택 클래스 */
+	/** 체형 선택 클래스 */
 	class bodyItemcheck implements ItemListener {
 		@Override
 		public void itemStateChanged(ItemEvent e) {

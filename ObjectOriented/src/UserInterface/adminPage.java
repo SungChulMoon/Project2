@@ -13,15 +13,15 @@ import InnerClass.DBmethod;
  * 
  */
 public class adminPage extends JFrame {
-	/** JLabel에 적용할 "관리자 페이지" 글자를 나타내는 ImageIcon*/
+	/** JLabel에 적용할 "관리자 페이지" 글자를 나타내는 ImageIcon */
 	ImageIcon Icon_admin = new ImageIcon("img/lb_admin_page.png");
-	/** JLabel에 적용할 "팁" 글자를 나타내는 ImageIcon*/
+	/** JLabel에 적용할 "팁" 글자를 나타내는 ImageIcon */
 	ImageIcon Icon_tip = new ImageIcon("img/lb_admin_tip.png");
-	/** JLabel에 적용할 "링크" 글자를 나타내는 ImageIcon*/
+	/** JLabel에 적용할 "링크" 글자를 나타내는 ImageIcon */
 	ImageIcon Icon_link = new ImageIcon("img/lb_admin_link.png");
-	/** adminPage의 배경이미지에 사용하는 ImageIcon*/
+	/** adminPage의 배경이미지에 사용하는 ImageIcon */
 	ImageIcon Icon_back_admin = new ImageIcon("img/lb_back_admin.png");
-	
+
 	private JPanel contentPane;
 	private JTextField tf_tip;
 	private JTextField tf_link;
