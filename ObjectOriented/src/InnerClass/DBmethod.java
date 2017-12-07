@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * DB에 정보를 넣거나 빼오는 역할을 하는 클래스
  * 
- * @author Moon light
+ * @author SungchulMoon
  * 
  */
 public class DBmethod {
@@ -26,13 +26,13 @@ public class DBmethod {
 
 	}
 	/**파싱되고 정제된 현재 날씨가 저장된 현재날씨, 현재 온도, 현재 최고온도, 현재 최저온도를 테이블에서 불러오는 메소드*/
-	public static nowWeather getNowweatherParsed() throws Exception {
+	public static NowWeatherObject getNowweatherParsed() throws Exception {
 		getInfo();
-		ArrayList<nowWeather> nowlist = new ArrayList<>();
+		ArrayList<NowWeatherObject> nowlist = new ArrayList<>();
 		PreparedStatement pst = conn.prepareStatement("select * from nowweatherparsed");
 		ResultSet rs = pst.executeQuery();
 		while (rs.next()) {
-			nowlist.add(new nowWeather(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+			nowlist.add(new NowWeatherObject(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 					rs.getString(5)));
 
 		}
@@ -121,16 +121,16 @@ public class DBmethod {
 	}
 	/**현재 저장된 팁을 확인하기 위한 메소드
 	 * */
-	public static ArrayList<tipObject> checktip() throws Exception {
+	public static ArrayList<TipObject> checktip() throws Exception {
 		getInfo();
-		ArrayList<tipObject> arr = new ArrayList<>();
+		ArrayList<TipObject> arr = new ArrayList<>();
 		PreparedStatement pst = conn.prepareStatement("select * from livingtip");
 		ResultSet rs = pst.executeQuery();
 		while (rs.next()) {
 			String weather = rs.getString(1);
 			String tip = rs.getString(2);
 			String link = rs.getString(3);
-			arr.add(new tipObject(tip, link));
+			arr.add(new TipObject(tip, link));
 		}
 		return arr;
 	}
@@ -152,20 +152,29 @@ public class DBmethod {
 	/**Main 프레임에서 사용할 팁을 날씨에 맞게 불러오기 위한 메소드 
 	 * @param weather 현재 날씨를 불러온다.
 	 * */
-	public static ArrayList<tipObject> selecttip(String weather) throws Exception {
+	public static ArrayList<TipObject> selecttip(String weather) throws Exception {
 		getInfo();
-		ArrayList<tipObject> arr = new ArrayList<>();
+		ArrayList<TipObject> arr = new ArrayList<>();
 		PreparedStatement pst = conn.prepareStatement("select * from livingtip where weather=?");
 		pst.setString(1, weather);
 		ResultSet rs = pst.executeQuery();
 		while(rs.next()) {
 			String tip = rs.getString(2);
 			String link = rs.getString(3);
-			arr.add(new tipObject(tip, link));
+			arr.add(new TipObject(tip, link));
 			System.out.println("in db"+tip);
 		}
 		return arr;
 	}
+	/**
+	 * 유저의 정보를 변경 시 update를 시키는 sql문을 실행시키는 메소드
+	 * @param id 사용자의 아이디
+	 * @param location 사용자가 입려한 새로운 지역
+	 * @param body 사용자의 변경할 체형값
+	 * @param style_str 사용자가 체크한 스타일의 정보값
+	 * @param style_size 사용자가 체크한 스타일의 갯수
+	 * 
+	 * */
 	public static int updateInfo(String id,String location,String body,String style_str,String style_size)throws Exception {
 		getInfo();
 		PreparedStatement pst = conn.prepareStatement("update userinfo set location=?,bdoy=?,style_str=?,style_size=? where id=?");
@@ -177,6 +186,11 @@ public class DBmethod {
 		int cnt =pst.executeUpdate();
 		return cnt;
 	}
+	/**관리자 페이지에서 받은 정보들을 codi라는 테이블에 정보를 저장 한다.
+	 * 
+	 * @param co 코디 객체
+	 * 
+	 * **/
 	public static int insertcodi(CodiOb co)throws Exception {
 		getInfo();
 		PreparedStatement pst = conn.prepareStatement("insert into codi values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -198,7 +212,11 @@ public class DBmethod {
 		int cnt = pst.executeUpdate();
 		return cnt;
 	}
-	
+	/**
+	 * 	codi 테이블의 정보값을 검색한 성별에 따라서 표출해주는 메소드
+	 * @param gender 성별
+	 * 
+	 * **/
 	public static ArrayList<CodiOb> selectCodi(String gender)throws Exception{
 		getInfo();
 		ArrayList<CodiOb> coarr =new ArrayList<>();

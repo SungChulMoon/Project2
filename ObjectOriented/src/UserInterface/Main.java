@@ -17,9 +17,9 @@ import InnerClass.DBmethod;
 import InnerClass.LineChartEx2;
 import InnerClass.UserObject;
 import InnerClass.Now;
-import InnerClass.nowWeather;
+import InnerClass.NowWeatherObject;
 import InnerClass.Location;
-import InnerClass.tipObject;
+import InnerClass.TipObject;
 
 /**
  * 유저들의 정보를 읽어오고 현재날씨 와 예상날씨를 매칭을하여 Display하는 클래스
@@ -42,7 +42,7 @@ public class Main extends JFrame {
 	private JLabel la_weather3;
 	private JLabel la_weather2;
 	private JLabel lb_local;
-	nowWeather nowinfo;
+	NowWeatherObject nowinfo;
 	codiDisplay ts;
 	UserObject us;
 	String location = "";
@@ -53,7 +53,7 @@ public class Main extends JFrame {
 	private JLabel lb_now_weather;
 	private JPanel panel_forecast;
 	private JPanel panel_style;
-	ArrayList<tipObject> toarr = null;
+	ArrayList<TipObject> toarr = null;
 	tiplink tl1;
 	tiplink tl2;
 	tiplink tl3;
@@ -350,9 +350,9 @@ public class Main extends JFrame {
 }
 
 class tiplink extends MouseAdapter {
-	tipObject to;
+	TipObject to;
 
-	public tiplink(tipObject to) {
+	public tiplink(TipObject to) {
 		this.to = to;
 	}
 

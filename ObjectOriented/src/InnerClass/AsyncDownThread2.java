@@ -15,10 +15,19 @@ public class AsyncDownThread2 extends Thread {
 
 	private String addr;
 	Location sl = new Location();
+	/**
+	 * 스레드 생성자를 통해서 주소값을 받아들이는 생성자
+	 * @param addr 스레드 생성자 생성시 받아오는 html주소 값 
+	 */
+
 	public AsyncDownThread2(String addr) {
 		this.addr = addr;
 
 	}
+	/**
+	 * 스레드를 돌릴때 실행되는 메소드로 downloadHtml 메소드를 사용하여 html의 결과값을 받아 들인다
+	 *
+	 */
 	public void run() {
 		String result = downloadHtml(addr);
 		try {

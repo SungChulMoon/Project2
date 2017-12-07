@@ -1,63 +1,56 @@
 package InnerClass;
 /**
- * 현재 날씨를 저장할 객체를 만들 클래스
- * @author Moon light
+ * 현재 날씨를 객체화 하기위한 클래스
+ * @author SungChul Moon
  *
  */
 public class NowWeatherObject {
-	String main;
+	/**현재 온도 문자열*/
 	String temp;
-	String array0;
-	double max;
-	double min;
-
-	public NowWeatherObject(String main, String temp, String array0, double max, double min) {
+	/**현재 최고 온도 문자열*/
+	String Maxtemp;
+	/**현재 최저 온도 문자열*/
+	String Mintemp;
+	/**현재 날씨 온도 문자열*/
+	String main;
+	/**현재 지역 온도 문자열*/
+	String location;
+	/**
+	 * 현재날씨의 객체 생성자
+	 * @param temp
+	 * @param maxtemp
+	 * @param mintemp
+	 * @param main
+	 * @param location
+	 * 
+	 * */
+	public NowWeatherObject(String temp, String maxtemp, String mintemp, String main, String location) {
 		super();
-		this.main = main;
 		this.temp = temp;
-		this.array0 = array0;
-		this.max = max;
-		this.min = min;
-	}
-
-	public String getMain() {
-		return main;
-	}
-
-	public void setMain(String main) {
+		Maxtemp = maxtemp;
+		Mintemp = mintemp;
 		this.main = main;
+		this.location = location;
 	}
-
+	/** 현재 온도를 받아오는 메소드*/
 	public String getTemp() {
 		return temp;
 	}
-
-	public void setTemp(String temp) {
-		this.temp = temp;
+	/** 현재 최고 온도를 받아오는 메소드*/
+	public String getMaxtemp() {
+		return Maxtemp;
 	}
-
-	public String getArray0() {
-		return array0;
+	/** 현재 최저 온도를 받아오는 메소드*/
+	public String getMintemp() {
+		return Mintemp;
 	}
-
-	public void setArray0(String array0) {
-		this.array0 = array0;
+	/** 현재 날씨 온도를 받아오는 메소드*/
+	public String getMain() {
+		return main;
 	}
-
-	public double getMax() {
-		return max;
+	/** 현재 지역 온도를 받아오는 메소드*/
+	public String getLocation() {
+		return location;
 	}
-
-	public void setMax(double max) {
-		this.max = max;
-	}
-
-	public double getMin() {
-		return min;
-	}
-
-	public void setMin(double min) {
-		this.min = min;
-	}
-
+	
 }

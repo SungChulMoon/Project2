@@ -250,6 +250,7 @@ public class adminPage2 extends JFrame {
 		contentPane.add(rd_m);
 		contentPane.add(lb_type);
 		contentPane.add(rd_outer);
+		contentPane.add(rd_top);
 		contentPane.add(rd_pants);
 		contentPane.add(rd_shoes);
 		contentPane.add(lb_season);

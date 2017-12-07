@@ -15,7 +15,14 @@ import java.util.logging.Handler;
 public class AsyncDownThread extends Thread {
 
 	private String addr;
+	/** Thread를 멈추고 Synchronized 메소드를 호출하기 위한 Location 객체 호출
+	 */
 	Location sl = new Location();
+	/**
+	 * 스레드 생성자를 통해서 주소값을 받아들이는 생성자
+	 * @param addr 스레드 생성자 생성시 받아오는 html주소 값 
+	 */
+
 	public AsyncDownThread(String addr) {
 		this.addr = addr;
 
